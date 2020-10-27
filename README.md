@@ -2,12 +2,14 @@
 
 Open source cross-platform client for popular imageboards: 4chan.org and 2ch.hk
 
+https://ichan.zchan.app
+
 Features:
 
 - Minimalistic UI, designed for large screens
 - Low battery consumption
 - Function to save all images in thread
-- Instant video playback
+- Instant video playback (including WebM Support for iOS)
 - Cached videos, images and threads
 - Remember position in threads
 - Save threads and read offline
@@ -16,21 +18,21 @@ Features:
 
 ![Screen2](https://zchan.app/assets/screen4.png)
 
-## Install on iOS
+### Install on iOS
 
-There are two ways to install the application.
+1. Easy way - One Tap Install
 
-1. Using altstore.io (no jailbreak required)
+- Subscribe on Patreon: https://www.patreon.com/zchandev
+- Send me your email
+- Receive testflight invite
 
-- Download altstore.io and install it in your iPhone or iPad
+2. Hard way
+
+- Download Altstore https://altstore.io and install it in your iPhone or iPad
 - Download ipa file: https://zchan.app/download/iChan.ipa
 - Open altstore app and select that ipa to install
 
-2. Using my Apple Developer Certificate (no jailbreak required)
-
-Contact me in telegram: @zchandev or email: zchandev@gmail.com for more info
-
-## Install on Android
+### Install on Android
 
 Google Play:
 https://play.google.com/store/apps/details?id=com.zchandev.iChan
