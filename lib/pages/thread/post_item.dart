@@ -30,6 +30,7 @@ class PostItem extends HookWidget {
   final Media highlightMedia;
 
   Thread get thread => threadData.thread;
+  bool get showThreadLink => origin == Origin.activity || origin == Origin.navigator;
 
   static String spacer = '  •  ';
 
@@ -180,7 +181,7 @@ class PostItem extends HookWidget {
   }
 
   Color postBackgroundColor() {
-    if (post.isMine && origin != Origin.activity) {
+    if (post.isMine && !showThreadLink) {
       return my.theme.myPostBackgroundColor;
     } else {
       return my.theme.postBackgroundColor;
@@ -190,8 +191,6 @@ class PostItem extends HookWidget {
   Color countersColor() {
     if (post.isMine) {
       return my.theme.foregroundBrightColor;
-    } else if (post.isToMe && origin != Origin.activity) {
-      return my.theme.linkColor;
     } else if (post.isOp) {
       return CupertinoColors.activeGreen;
     } else {
@@ -244,7 +243,7 @@ class PostItem extends HookWidget {
       child: Text(
         text,
         style: TextStyle(
-          fontWeight: (post.isOp || post.isToMe) ? FontWeight.w600 : FontWeight.normal,
+          fontWeight: post.isOp ? FontWeight.w600 : FontWeight.normal,
           color: countersColor(),
         ),
       ),
@@ -285,7 +284,7 @@ class PostItem extends HookWidget {
         }
       },
       child: Container(
-        padding: const EdgeInsets.only(bottom: 5.0, top: 10.0),
+        padding: const EdgeInsets.only(bottom: 5.0, top: 7.0),
         child: Row(
           mainAxisAlignment: my.prefs.getBool('time_at_right')
               ? MainAxisAlignment.start
@@ -300,7 +299,7 @@ class PostItem extends HookWidget {
                 ),
               )
             ],
-            if (repliesCondition) ...[
+            if (repliesCondition && origin != Origin.navigator) ...[
               AnimatedOpacityItem(
                 loadedAt: threadData.refreshedAt,
                 child: Text(
@@ -313,6 +312,23 @@ class PostItem extends HookWidget {
                 ),
               )
             ],
+            if (origin == Origin.navigator) ...[
+              GestureDetector(
+                behavior: HitTestBehavior.translucent,
+                onTap: () {
+                  post.isUnread = false;
+                  if (post.isInBox) {
+                    post.save();
+                  }
+                  my.favoriteBloc.updateUnreadReplies();
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 5.0, top: 5.0),
+                  child: FaIcon(FontAwesomeIcons.times,
+                      color: my.theme.inactiveColor.withOpacity(0.8), size: 12),
+                ),
+              )
+            ]
           ],
         ),
       ),
@@ -338,7 +354,7 @@ class PostItem extends HookWidget {
       replyCallback: replyCallback,
     );
 
-    if (origin == Origin.activity) {
+    if (showThreadLink) {
       postBody = GestureDetector(
         behavior: HitTestBehavior.translucent,
         onTap: () {
@@ -409,7 +425,7 @@ class PostItem extends HookWidget {
           children: <Widget>[
             Row(
               children: [
-                if (origin == Origin.activity)
+                if (showThreadLink)
                   threadInfo(postChanged, context)
                 else
                   postCounters(postChanged, context),
@@ -487,16 +503,16 @@ class PostItem extends HookWidget {
         behavior: HitTestBehavior.translucent,
         onTap: () => onTap(),
         child: Container(
-          padding: const EdgeInsets.only(bottom: 5.0, left: 10.0),
+          padding: const EdgeInsets.only(bottom: 10.0, left: 10.0, top: 0.0),
           child: Icon(CupertinoIcons.ellipsis,
-              size: 20, color: post.isToMe ? my.theme.linkColor : my.theme.primaryColor),
+              size: 16, color: post.isToMe ? my.theme.linkColor : my.theme.primaryColor),
         ),
       ),
     );
   }
 
   Border postBorder() {
-    if (post.isToMe && origin != Origin.activity) {
+    if (post.isToMe && !showThreadLink) {
       return Border(
         left: BorderSide(
           color: my.theme.linkColor,

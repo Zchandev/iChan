@@ -2,7 +2,7 @@
 
 Open source cross-platform client for popular imageboards: 4chan.org and 2ch.hk
 
-https://ichan.zchan.app
+[https://ichan.zchan.app](https://ichan.zchan.app/?utm_source=github&utm_medium=link&utm_campaign=4chan)
 
 Features:
 
@@ -20,16 +20,16 @@ Features:
 
 ### Install on iOS
 
-1. Easy way - One Tap Install
+1. Easy Way - One Tap Install
 
 - Subscribe on Patreon: https://www.patreon.com/zchandev
 - Send me your email
 - Receive testflight invite
 
-2. Hard way
+2. Hard Way
 
 - Download Altstore https://altstore.io and install it in your iPhone or iPad
-- Download ipa file: https://zchan.app/download/iChan.ipa
+- Compile this project to get ipa file
 - Open altstore app and select that ipa to install
 
 ### Install on Android

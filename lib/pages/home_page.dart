@@ -34,7 +34,7 @@ class HomePageState extends State<HomePage> {
       my.prefs.put('last_screen', data);
     } else if (index == 1) {
       my.favoriteBloc.favoriteUpdated();
-      my.favoriteBloc.refreshAuto();
+      my.favoriteBloc.refresh(auto: true);
 
       final data = {'page': 'favorites'};
       my.prefs.put('last_screen', data);
@@ -89,7 +89,7 @@ class HomePageState extends State<HomePage> {
           }
         }
 
-        my.favoriteBloc.refreshAuto();
+        my.favoriteBloc.refresh(auto: true);
       });
     }
   }

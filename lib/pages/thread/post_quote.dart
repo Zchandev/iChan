@@ -57,9 +57,8 @@ class PostQuote extends HookWidget {
           runSpacing: 20,
           children: [
             CupertinoTextField(
-              style: TextStyle(
-                color: my.theme.editFieldContrastingColor,
-              ),
+              style: TextStyle(color: my.theme.editFieldContrastingColor),
+              keyboardAppearance: my.theme.brightness,
               decoration: BoxDecoration(
                 color: my.theme.formBackgroundColor,
                 borderRadius: BorderRadius.circular(6),

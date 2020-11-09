@@ -470,7 +470,7 @@ class _ThreadItemState extends State<ThreadItem> {
                     },
                     child: Icon(
                       CupertinoIcons.ellipsis,
-                      size: fontSize + 6,
+                      size: fontSize + 2,
                       color: my.theme.primaryColor,
                     ),
                   )

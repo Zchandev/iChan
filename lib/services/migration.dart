@@ -6,8 +6,22 @@ import 'package:iChan/services/my.dart' as my;
 class Migration {
   static const current = 8;
 
-  static Future start() async {
-    if (my.prefs.getInt('migration') == 0) {
+  static Future migrate() async {
+    try {
+      int lvl = my.prefs.getInt('migration');
+      while (lvl < current) {
+        await run(lvl);
+        print("Migrated to $lvl");
+        lvl += 1;
+      }
+      my.prefs.put('migration', current);
+    } catch (e) {
+      print("Error is $e");
+    }
+  }
+
+  static Future run(int step) async {
+    if (step == 0) {
       final favs = my.favs.box.toMap();
       favs.forEach((key, fav) {
         fav.isFavorite ??= true;
@@ -17,31 +31,25 @@ class Migration {
         fav.rememberPostId ??= '';
         fav.save();
       });
-
-      my.prefs.put('migration', 1);
     }
 
-    if (my.prefs.getInt('migration') == 1) {
+    if (step == 1) {
       final favs = my.favs.box.toMap();
       favs.forEach((key, fav) {
         fav.ownPostsCount = 0;
         fav.save();
       });
-
-      my.prefs.put('migration', 2);
     }
 
-    if (my.prefs.getInt('migration') == 2) {
+    if (step == 2) {
       final favs = my.favs.box.toMap();
       favs.forEach((key, fav) {
         fav.isHidden = false;
         fav.save();
       });
-
-      my.prefs.put('migration', 3);
     }
 
-    if (my.prefs.getInt('migration') == 3) {
+    if (step == 3) {
       final favs = my.favs.box.toMap();
       favs.forEach((key, fav) {
         fav.temp = false;
@@ -58,11 +66,9 @@ class Migration {
         my.secstore.put('2ch/$passcode/code', usercode);
         my.prefs.box.delete('usercode');
       }
-
-      my.prefs.put('migration', 4);
     }
 
-    if (my.prefs.getInt('migration') == 4) {
+    if (step == 4) {
       // print("NOT NOW");
       // return;
       final favBoards = my.prefs.get("boards");
@@ -139,10 +145,9 @@ class Migration {
       my.prefs.put('platform', [Platform.dvach]);
 
       print('MIGRATED TO VERSION 5');
-      my.prefs.put('migration', 5);
     }
 
-    if (my.prefs.getInt('migration') == 5) {
+    if (step == 5) {
       // SQLite removed
       // Some users would be fucked up
       // Sad for them
@@ -180,10 +185,9 @@ class Migration {
       // final length = my.posts.values.length;
       // my.prefs.setStats('posts_created', length);
 
-      my.prefs.put('migration', 6);
     }
 
-    if (my.prefs.getInt('migration') == 6) {
+    if (step == 6) {
       final replies = my.posts.replies.length;
       my.prefs.setStats('replies_received', replies);
 
@@ -192,11 +196,9 @@ class Migration {
 
       final mediaViews = (my.prefs.stats['threads_clicked'] * 0.55).round();
       my.prefs.setStats('media_views', mediaViews);
-
-      my.prefs.put('migration', 7);
     }
 
-    if (my.prefs.getInt('migration') == 7) {
+    if (step == 7) {
       final favs = List<ThreadStorage>.from(my.favs.values);
       for (final fav in favs) {
         if (fav.refreshedAt == null || fav.extras == null || fav.extras.isEmpty) {
@@ -206,9 +208,13 @@ class Migration {
         }
       }
 
-      my.prefs.put('migration', 8);
+      final List<Board> boards = my.prefs.get("favorite_boards").cast<Board>();
+      int i = 0;
+      for (final board in boards) {
+        board.index = i;
+        i += 1;
+      }
+      my.prefs.put("favorite_boards", boards);
     }
   }
-
-  // Don't forget to edit current;
 }

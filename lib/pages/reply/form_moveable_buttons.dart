@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:iChan/pages/reply/quote_button.dart';
+import 'package:iChan/pages/reply/tag_button.dart';
 import 'package:iChan/services/my.dart' as my;
-
-import 'form_tag_buttons.dart';
 
 class FormMoveableButtons extends StatelessWidget {
   const FormMoveableButtons({Key key, this.controller, this.position}) : super(key: key);
@@ -34,7 +34,66 @@ class FormMoveableButtons extends StatelessWidget {
           },
           child: Padding(
             padding: EdgeInsets.only(top: isBottom ? 5.0 : 0.0, bottom: isBottom ? 0.0 : 5.0),
-            child: FormTagButtonsRow(controller: controller),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                    flex: 3,
+                    child: TagButton(
+                      controller: controller,
+                      child: Text("B",
+                          style: TextStyle(
+                            fontSize: 22,
+                            color: my.theme.primaryColor,
+                            fontWeight: FontWeight.bold,
+                          )),
+                      tagName: "b",
+                    )),
+                Expanded(
+                    flex: 3,
+                    child: TagButton(
+                        controller: controller,
+                        child: Text("I",
+                            style: TextStyle(
+                              fontSize: 22,
+                              color: my.theme.primaryColor,
+                              fontStyle: FontStyle.italic,
+                            )),
+                        tagName: "i")),
+                Expanded(
+                  flex: 3,
+                  child: TagButton(
+                      controller: controller,
+                      child: Text("U",
+                          style: TextStyle(
+                            fontSize: 22,
+                            color: my.theme.primaryColor,
+                            decoration: TextDecoration.underline,
+                          )),
+                      tagName: "u"),
+                ),
+                Expanded(
+                    flex: 3,
+                    child: TagButton(
+                        controller: controller,
+                        child: Text("S",
+                            style: TextStyle(
+                              fontSize: 22,
+                              color: my.theme.primaryColor,
+                              decoration: TextDecoration.lineThrough,
+                            )),
+                        tagName: "s")),
+                Expanded(
+                    flex: 4, child: QuoteButton(controller: controller, text: ">Q", tagName: "q")),
+                Expanded(
+                    flex: 4,
+                    child: TagButton(controller: controller, text: "SP", tagName: "spoiler")),
+                Expanded(
+                    flex: 3, child: TagButton(controller: controller, text: "A^", tagName: "sup")),
+                Expanded(
+                    flex: 3, child: TagButton(controller: controller, text: " A_", tagName: "sub")),
+              ],
+            ),
           ),
         );
       },

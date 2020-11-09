@@ -13,7 +13,10 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'favorites.dart';
 
 class FavoritesList extends StatefulWidget {
-  const FavoritesList();
+  const FavoritesList({key, this.origin = Origin.favorites}) : super(key: key);
+
+  final Origin origin;
+
   FavoritesListState createState() => FavoritesListState();
 }
 
@@ -22,9 +25,13 @@ class FavoritesListState extends State<FavoritesList> {
   final _refreshController = RefreshController(initialRefresh: false);
   final SlidableController slidableController = SlidableController();
 
+  bool get isCompact => widget.origin == Origin.navigator;
+  bool expandHistory = false;
+  bool expandTop = false;
+
   @override
   void initState() {
-    _selectedTab = my.prefs.getInt('favorites_tab', defaultValue: 0);
+    _selectedTab = isCompact ? 1 : my.prefs.getInt('favorites_tab', defaultValue: 0);
     super.initState();
   }
 
@@ -36,7 +43,6 @@ class FavoritesListState extends State<FavoritesList> {
       listener: (context, state) {
         if (state is FavoriteReady) {
           _refreshController.refreshCompleted();
-          // Haptic.lightImpact();`
         }
       },
       builder: (context, state) {
@@ -47,7 +53,7 @@ class FavoritesListState extends State<FavoritesList> {
               child: FaIcon(FontAwesomeIcons.ghost, size: 60, color: my.theme.inactiveColor));
         }
 
-        if (favsList.length >= 5 && data.isEmpty) {
+        if (favsList.length >= 5 && data.isEmpty && !isCompact) {
           data.add(favsHeader());
         }
 
@@ -56,7 +62,7 @@ class FavoritesListState extends State<FavoritesList> {
             controller: _refreshController,
             onRefresh: () {
               Haptic.lightImpact();
-              my.favoriteBloc.refreshManual();
+              my.favoriteBloc.refresh();
             },
             child: CustomScrollView(slivers: data + favData));
       },
@@ -109,8 +115,8 @@ class FavoritesListState extends State<FavoritesList> {
   SliverPersistentHeader makeHeader(String title, {Platform platform}) {
     return SliverPersistentHeader(
       delegate: _SliverAppBarDelegate(
-        minHeight: 35.0,
-        maxHeight: 35.0,
+        minHeight: 30.0,
+        maxHeight: 30.0,
         child: HoldableHint(
           enabled: title.startsWith('/') || title.contains(': '),
           onLongPress: () {
@@ -124,7 +130,7 @@ class FavoritesListState extends State<FavoritesList> {
             alignment: Alignment.centerLeft,
             padding: const EdgeInsets.only(left: 10.0),
             child: Text(
-              "TAP AND HOLD",
+              'TAP AND HOLD',
               style: TextStyle(
                 color: my.theme.primaryColor,
                 fontSize: 17,
@@ -143,7 +149,35 @@ class FavoritesListState extends State<FavoritesList> {
               style: TextStyle(
                 color: my.theme.foregroundMenuColor,
                 fontSize: 17,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  SliverPersistentHeader makeCustomHeader(String title, {Platform platform, Function onTap}) {
+    return SliverPersistentHeader(
+      delegate: _SliverAppBarDelegate(
+        minHeight: 30.0,
+        maxHeight: 30.0,
+        child: GestureDetector(
+          behavior: HitTestBehavior.translucent,
+          onTap: () => onTap(),
+          child: Container(
+            color: my.theme.isDark
+                ? my.theme.alphaBackground
+                : my.theme.alphaBackground.withOpacity(0.7),
+            alignment: Alignment.centerLeft,
+            padding: const EdgeInsets.only(left: 10.0),
+            child: Text(
+              title,
+              style: TextStyle(
+                color: my.theme.foregroundMenuColor,
+                fontSize: 17,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ),
@@ -157,12 +191,17 @@ class FavoritesListState extends State<FavoritesList> {
       key: UniqueKey(),
       initialItemCount: favs.length,
       itemBuilder: (context, index, animation) {
-        final favItem =
-            FavSliverItem(key: ValueKey(favs[index].id), fav: favs[index], header: header);
+        final favItem = FavSliverItem(
+          key: ValueKey(favs[index].id),
+          fav: favs[index],
+          header: header,
+          // replaceRoute: isCompact,
+        );
 
         return SizeTransition(
           sizeFactor: animation,
           child: Slidable.builder(
+              enabled: !isCompact,
               key: Key("slideable-${favs[index].id}"),
               controller: slidableController,
               actionPane: const SlidableDrawerActionPane(),
@@ -193,18 +232,18 @@ class FavoritesListState extends State<FavoritesList> {
     );
   }
 
-  List<ThreadStorage> topList(List<ThreadStorage> favsList) {
-    final firstList = favsList
-        .where((f) => f.status != Status.deleted)
-        .sortedBy((a, b) => b.visitedAt.compareTo(a.visitedAt))
-        .first;
+  // List<ThreadStorage> topList(List<ThreadStorage> favsList) {
+  //   final firstList = favsList
+  //       .where((f) => f.status != Status.deleted)
+  //       .sortedBy((a, b) => b.visitedAt.compareTo(a.visitedAt))
+  //       .first;
 
-    final secondList = favsList
-        .where((f) => f.status != Status.deleted)
-        .sortedBy((a, b) => b.visits.compareTo(a.visits));
+  //   final secondList = favsList
+  //       .where((f) => f.status != Status.deleted)
+  //       .sortedBy((a, b) => b.visits.compareTo(a.visits));
 
-    return ([firstList] + secondList).toSet().toList();
-  }
+  //   return ([firstList] + secondList).toSet().toList();
+  // }
 
   List<Widget> buildData(List<ThreadStorage> favsList, selectedTab) {
     final List<Widget> _data = [];
@@ -217,61 +256,88 @@ class FavoritesListState extends State<FavoritesList> {
     final isTop = selectedTab == 1;
     final isUnread = selectedTab == 2;
 
-    final filteredList = isTop ? topList(favsList) : favsList;
+    if (isTop) {
+      favsList.sort((a, b) => b.visits.compareTo(a.visits));
+    }
+
     final List<Board> boards = [];
 
-    for (final e in filteredList) {
+    for (final e in favsList) {
       if (boards.any((b) => b.id == e.boardName && b.platform == e.platform) == false) {
         boards.add(Board(e.boardName, platform: e.platform));
       }
     }
 
-    // final boards = filteredList.map((e) => Board(e.boardName, platform: e.platform)).toSet().toList();
+    final myThreads = favsList.where((e) => e.isOp && e.status != Status.deleted).toList();
 
-    final myThreads = filteredList.where((e) => e.isOp && e.status != Status.deleted).toList();
-
-    if (myThreads.isNotEmpty) {
+    if (myThreads.isNotEmpty && !isCompact) {
       const header = "My";
       _data.add(makeHeader(header));
       _data.add(makeItems(myThreads, context, header: header));
     }
 
-    final List<ThreadStorage> best = [];
+    List<ThreadStorage> best = [];
     if (isTop) {
       const header = "Top";
 
-      for (final board in boards) {
-        final thread = filteredList.sortedBy((a, b) => b.visits.compareTo(a.visits)).firstWhere(
-            (e) => !e.isOp && e.boardName == board.id && e.platform == board.platform,
-            orElse: () => null);
-
-        if (thread != null && thread.visits >= 10 && thread.refresh) {
-          best.add(thread);
-        }
-      }
-      best.sort((a, b) => b.visits.compareTo(a.visits));
-      if (best.length >= 3) {
-        _data.add(makeHeader(header));
+      if (!expandHistory && favsList.length >= 5) {
+        final count = expandTop ? 20 : 5;
+        best = favsList.sortedBy((a, b) => b.visits.compareTo(a.visits)).take(count).toList();
+        _data.add(makeCustomHeader(header, onTap: () {
+          setState(() {
+            expandHistory = false;
+            expandTop = !expandTop;
+          });
+        }));
         _data.add(makeItems(best, context, header: header));
       }
+
+      // for (final board in boards) {
+      //   print("board.id = ${board.id}");
+      //   final thread = favsList.sortedBy((a, b) => b.visits.compareTo(a.visits)).firstWhere(
+      //       (e) =>
+      //           !e.isOp &&
+      //           e.boardName == board.id &&
+      //           e.platform == board.platform &&
+      //           e.status != Status.closed &&
+      //           e.status != Status.deleted,
+      //       orElse: () => null);
+
+      //   print("thread.outerId = ${thread.id}");
+
+      //   if (thread != null && thread.visits >= 10 && thread.refresh) {
+      //     best.add(thread);
+      //   }
+      // }
+      // print("best.length = ${best.length}");
+      // best.sort((a, b) => b.visits.compareTo(a.visits));
+      // if (best.length >= 3) {
+      //   _data.add(makeHeader(header));
+      //   _data.add(makeItems(best, context, header: header));
+      // }
     }
 
-    if (isUnread) {
-      final _favs = filteredList
+    List<ThreadStorage> unreadItems = [];
+    if (!expandHistory && !expandTop && (isUnread || isCompact)) {
+      unreadItems = favsList
           .where((e) => !e.isOp && e.unreadCount != 0 && e.status != Status.deleted)
           .toList();
 
-      if (_favs.isNotEmpty) {
+      if (isCompact) {
+        unreadItems = unreadItems.where((e) => best.contains(e) == false).toList();
+      }
+
+      if (unreadItems.isNotEmpty) {
         const header = "Unread";
         _data.add(makeHeader(header));
-        _data.add(makeItems(_favs, context, header: header));
+        _data.add(makeItems(unreadItems, context, header: header));
       }
     }
 
     for (final board in boards) {
       bool unreadFilter(e) => !isUnread || e.unreadCount == 0;
 
-      List<ThreadStorage> _favs = filteredList
+      List<ThreadStorage> _favs = favsList
           .where((e) =>
               !best.contains(e) &&
               !e.isOp &&
@@ -284,7 +350,7 @@ class FavoritesListState extends State<FavoritesList> {
         _favs = _favs.sortedByNum((e) => -e.visits).take(5).toList();
       }
 
-      if (_favs.isNotEmpty) {
+      if (_favs.isNotEmpty && !isCompact) {
         final h = my.prefs.platforms.length == 1
             ? "/${board.id}/"
             : "${platformNames[board.platform]}: /${board.id}/";
@@ -295,13 +361,65 @@ class FavoritesListState extends State<FavoritesList> {
 
     final savedThreads = my.favs.box.values.where((e) => e.isSaved).toList();
 
-    if (savedThreads.isNotEmpty) {
+    if (savedThreads.isNotEmpty && !isCompact) {
       const header = "Saved";
       _data.add(makeHeader(header));
       _data.add(makeItems(savedThreads, context, header: header));
     }
 
+    if (isCompact && !expandTop) {
+      final historyElements = expandHistory ? 20 : 5;
+      final historyItems =
+          my.favs.box.values.sortedByNum((e) => e.visitedAt * -1).take(20).toList();
+
+      final List<ThreadStorage> historyFilteredItems = [];
+      int i = 0;
+      for (final item in historyItems) {
+        if (!unreadItems.contains(item) && i <= historyElements) {
+          historyFilteredItems.add(item);
+          i += 1;
+        }
+      }
+      const header = "History";
+      _data.add(makeCustomHeader("History", onTap: () {
+        setState(() {
+          expandTop = false;
+          expandHistory = !expandHistory;
+        });
+      }));
+      _data.add(makeItems(historyFilteredItems, context, header: header));
+    }
+
     return _data;
+  }
+}
+
+class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
+  _SliverAppBarDelegate({
+    @required this.minHeight,
+    @required this.maxHeight,
+    @required this.child,
+  });
+  final double minHeight;
+  final double maxHeight;
+  final Widget child;
+
+  @override
+  double get minExtent => minHeight;
+
+  @override
+  double get maxExtent => max(maxHeight, minHeight);
+
+  @override
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return SizedBox.expand(child: child);
+  }
+
+  @override
+  bool shouldRebuild(_SliverAppBarDelegate oldDelegate) {
+    return maxHeight != oldDelegate.maxHeight ||
+        minHeight != oldDelegate.minHeight ||
+        child != oldDelegate.child;
   }
 }
 
@@ -350,34 +468,5 @@ class _HoldableHintState extends State<HoldableHint> {
       },
       child: tapped ? widget.holdChild : widget.child,
     );
-  }
-}
-
-class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
-  _SliverAppBarDelegate({
-    @required this.minHeight,
-    @required this.maxHeight,
-    @required this.child,
-  });
-  final double minHeight;
-  final double maxHeight;
-  final Widget child;
-
-  @override
-  double get minExtent => minHeight;
-
-  @override
-  double get maxExtent => max(maxHeight, minHeight);
-
-  @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return SizedBox.expand(child: child);
-  }
-
-  @override
-  bool shouldRebuild(_SliverAppBarDelegate oldDelegate) {
-    return maxHeight != oldDelegate.maxHeight ||
-        minHeight != oldDelegate.minHeight ||
-        child != oldDelegate.child;
   }
 }

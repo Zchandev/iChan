@@ -149,7 +149,7 @@ class CategoryList extends StatelessWidget {
                   ),
                 ),
                 if (my.prefs.getList('platforms').length > 1) ...[
-                  const PlatformSelector(),
+                  PlatformSelector(controller: searchController),
                 ]
               ],
             ),
@@ -189,7 +189,8 @@ class CategoryList extends StatelessWidget {
 }
 
 class PlatformSelector extends StatefulWidget {
-  const PlatformSelector({Key key}) : super(key: key);
+  const PlatformSelector({Key key, this.controller}) : super(key: key);
+  final TextEditingController controller;
 
   @override
   _PlatformSelectorState createState() => _PlatformSelectorState();
@@ -202,11 +203,13 @@ class _PlatformSelectorState extends State<PlatformSelector> {
       groupValue: my.categoryBloc.selectedPlatform,
       selectedColor: my.theme.primaryColor,
       unselectedColor: my.theme.backgroundColor,
-      onValueChanged: (val) {
-        my.categoryBloc.fetchBoards(val);
-        setState(() {
-          my.categoryBloc.selectedPlatform = val;
-        });
+      onValueChanged: (val) async {
+        my.categoryBloc.selectedPlatform = val;
+        await my.categoryBloc.fetchBoards(val);
+        if (widget.controller.text.isNotEmpty) {
+          my.categoryBloc.search(widget.controller.text);
+        }
+        setState(() {});
       },
       children: const <Platform, Widget>{
         Platform.dvach: Padding(

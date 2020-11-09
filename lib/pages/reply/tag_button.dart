@@ -2,11 +2,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:iChan/services/my.dart' as my;
 
 class TagButton extends StatelessWidget {
-  const TagButton({Key key, @required this.controller, this.text, this.tagName})
-      : super(key: key);
+  const TagButton({
+    Key key,
+    @required this.controller,
+    this.text,
+    this.child,
+    this.tagName,
+  }) : super(key: key);
 
   final TextEditingController controller;
   final String text;
+  final Widget child;
   final String tagName;
 
   @override
@@ -28,14 +34,12 @@ class TagButton extends StatelessWidget {
         controller.text = result;
         newOffset = sel.baseOffset + textWithCode.length - 3 - tagName.length;
 
-        controller.selection =
-            sel.copyWith(baseOffset: newOffset, extentOffset: newOffset);
+        controller.selection = sel.copyWith(baseOffset: newOffset, extentOffset: newOffset);
         // my.postBloc.updateText(controller.text);
       },
       child: Container(
         // width: (context.screenWidth - 20) / 8,
-        child: Text(text,
-            style: TextStyle(fontSize: 22, color: my.theme.primaryColor)),
+        child: child ?? Text(text, style: TextStyle(fontSize: 22, color: my.theme.primaryColor)),
       ),
     );
   }

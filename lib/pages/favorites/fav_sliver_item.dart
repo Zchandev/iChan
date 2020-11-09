@@ -9,10 +9,16 @@ import 'package:iChan/services/htmlz.dart';
 import 'package:iChan/services/my.dart' as my;
 
 class FavSliverItem extends StatefulWidget {
-  const FavSliverItem({Key key, this.fav, this.header = '/'}) : super(key: key);
+  const FavSliverItem({
+    Key key,
+    this.fav,
+    this.header = '/',
+    this.replaceRoute = false,
+  }) : super(key: key);
 
   final ThreadStorage fav;
   final String header;
+  final bool replaceRoute;
 
   @override
   _FavSliverItemState createState() => _FavSliverItemState();
@@ -115,7 +121,7 @@ class _FavSliverItemState extends State<FavSliverItem> {
             } else {
               await Routz.of(context).toThread(
                 threadLink: ThreadLink.fromStorage(fav),
-                previousPageTitle: "Favs",
+                replace: widget.replaceRoute,
               );
 
               final data = {'page': 'favorites'};
@@ -144,7 +150,7 @@ class _FavSliverItemState extends State<FavSliverItem> {
                     } else {
                       await Routz.of(context).toThread(
                         threadLink: ThreadLink.fromStorage(fav),
-                        previousPageTitle: "Favs",
+                        replace: widget.replaceRoute,
                       );
 
                       final data = {'page': 'favorites'};

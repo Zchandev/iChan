@@ -52,7 +52,6 @@ class FavGridItem extends StatelessWidget {
           onTap: () async {
             Routz.of(context).toThread(
               threadLink: ThreadLink.fromStorage(fav),
-              previousPageTitle: "Favs",
             );
           },
           child: Column(

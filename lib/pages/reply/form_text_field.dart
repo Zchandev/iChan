@@ -17,7 +17,7 @@ class FormTextField extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(bottom: 5.0, top: 5.0),
       child: CupertinoTextField(
-        keyboardAppearance: Consts.keyboardAppearance,
+        keyboardAppearance: my.theme.brightness,
         keyboardType: TextInputType.multiline,
         textCapitalization: TextCapitalization.sentences,
         autofocus: false,

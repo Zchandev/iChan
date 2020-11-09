@@ -57,7 +57,7 @@ class BoardPage extends StatelessWidget {
         onTap: () {
           Routz.of(context).toPage(NewPostPage(board: board), title: "/${board.id}/");
         },
-        child: Icon(CupertinoIcons.add, color: my.theme.navbarFontColor),
+        child: Icon(CupertinoIcons.add, color: my.theme.navbarFontColor, size: 24),
       ),
     );
   }

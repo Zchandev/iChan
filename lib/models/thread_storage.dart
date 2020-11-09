@@ -162,7 +162,8 @@ class ThreadStorage extends HiveObject {
 
   Future<void> putOrSave() async {
     if (isNotEmpty) {
-      isInBox ? save() : my.favs.box.put(id, this);
+      return isInBox ? await save() : await my.favs.box.put(id, this);
     }
+    return Future.value();
   }
 }

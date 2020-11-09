@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' as foundation;
-import 'package:iChan/services/consts.dart';
 
 export 'dart:developer';
 
@@ -22,7 +21,7 @@ export 'routz.dart';
 export 'system.dart';
 
 bool get isIos => foundation.defaultTargetPlatform == TargetPlatform.iOS;
-bool get isDebug => !Consts.isPhysical || foundation.kDebugMode;
+bool get isDebug => foundation.kDebugMode;
 // bool get isDebug => false;
 // bool get isTest => DotEnv().env["FLUTTER_ENV"] == "test";
 bool get isProd => !isDebug;

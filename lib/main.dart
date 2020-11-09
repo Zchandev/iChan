@@ -81,7 +81,7 @@ Future<void> main() async {
   await Consts.init();
 
   updateHiveDefaults();
-  await Migration.start();
+  await Migration.migrate();
   if (!isDebug) {
     System.cleanCache();
   }

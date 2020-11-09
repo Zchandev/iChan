@@ -28,18 +28,18 @@ class AppearanceSettingsPage extends StatelessWidget {
       child: ListView(
         padding: const EdgeInsets.only(top: Consts.topPadding * 3),
         children: [
-          // const MenuSwitch(
-          //   label: "Classic design",
-          //   field: "classic_mode",
-          //   defaultValue: false,
-          //   isFirst: true,
-          // ),
           MenuSwitch(
             label: "Favorites as blocks",
             field: "favorites_as_blocks",
             hint: "menus.hints.favorites_as_blocks".tr(),
             defaultValue: false,
             isFirst: true,
+          ),
+          MenuSwitch(
+            label: 'Disable thread mode switcher',
+            field: 'thread_mode_disabled',
+            hint: "menus.hints.thread_mode_disabled".tr(),
+            defaultValue: false,
           ),
           MenuSwitch(
             label: 'Disable activity',
@@ -102,7 +102,6 @@ class AppearanceSettingsPage extends StatelessWidget {
             hint: 'menus.hints.back_to_thread_disabled'.tr(),
             defaultValue: false,
           ),
-
           if (Consts.isIpad) ...[
             MenuSwitch(
               label: "Menu on the right",

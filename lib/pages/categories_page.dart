@@ -29,7 +29,6 @@ class CategoriesPageState extends State<CategoriesPage> {
   void dispose() {
     addCategoryController.dispose();
     searchController.dispose();
-    // focusNode.unfocus();
     focusNode.dispose();
     super.dispose();
   }
@@ -45,7 +44,7 @@ class CategoriesPageState extends State<CategoriesPage> {
       onTap: () {
         showDialog(context);
       },
-      child: Icon(CupertinoIcons.add, color: my.theme.navbarFontColor),
+      child: Icon(CupertinoIcons.add, color: my.theme.navbarFontColor, size: 24),
     );
 
     return HeaderNavbar(

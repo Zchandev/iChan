@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/foundation.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,7 +7,6 @@ import 'package:iChan/models/models.dart';
 import 'package:iChan/repositories/repositories.dart';
 import 'package:iChan/services/enums.dart';
 import 'package:iChan/services/exceptions.dart';
-import 'package:iChan/services/extensions.dart';
 import 'package:iChan/services/my.dart' as my;
 
 // BLOC
@@ -36,14 +33,7 @@ class CategoryBloc extends Cubit<CategoryState> {
   }
 
   List<Board> filterByIdStarts(String query) {
-    final strict = boards.where((e) => e.id.toLowerCase() == query.toLowerCase()).toList();
-    final others = boards
-        .where((e) =>
-            e.id.toLowerCase() != query.toLowerCase() &&
-            e.id.toLowerCase().startsWith(query.toLowerCase()))
-        .toList();
-
-    return strict + others;
+    return boards.where((e) => e.id.toLowerCase().startsWith(query.toLowerCase())).toList();
   }
 
   Board _createBoard(String id, Platform platform) => Board(id, name: id, platform: platform);
@@ -96,12 +86,14 @@ class CategoryBloc extends Cubit<CategoryState> {
         platform: selectedPlatform,
       ));
     } else {
-      filteredBoards = filterByIdStarts(query).presence ?? filterByNameContains(query);
-      final filteredCategories = filteredBoards.map((e) => e.category).toSet().toList();
+      filteredBoards = filterByIdStarts(query);
+      if (filteredBoards.isEmpty) {
+        filteredBoards = filterByNameContains(query);
+      }
 
       emit(CategoryLoaded(
         boards: filteredBoards,
-        categories: filteredCategories,
+        categories: categories,
         favoriteBoards: const [],
         platform: selectedPlatform,
       ));

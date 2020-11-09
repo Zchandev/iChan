@@ -45,7 +45,7 @@ class FavoritesPageState extends State<FavoritesPage> with WidgetsBindingObserve
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
-      my.favoriteBloc.refreshAuto();
+      my.favoriteBloc.refresh(auto: true);
     }
   }
 
@@ -102,7 +102,7 @@ class FavoritesPageState extends State<FavoritesPage> with WidgetsBindingObserve
               }
             },
             onTap: () {
-              my.favoriteBloc.refreshManual();
+              my.favoriteBloc.refresh();
             },
             child: Padding(
               padding: const EdgeInsets.all(5.0),

@@ -79,7 +79,9 @@ class Interactive {
   }
 
   Future<dynamic> modalTextField(
-      {@required TextEditingController controller, String header, CupertinoDialogAction action}) {
+      {@required TextEditingController controller,
+      String header = '',
+      CupertinoDialogAction action}) {
     return showCupertinoDialog(
       context: context,
       builder: (BuildContext context) {
@@ -90,6 +92,7 @@ class Interactive {
               const SizedBox(height: 15.0),
               CupertinoTextField(
                 autofocus: true,
+                keyboardAppearance: my.theme.brightness,
                 textCapitalization: TextCapitalization.none,
                 style: const TextStyle(fontSize: 15),
                 controller: controller,

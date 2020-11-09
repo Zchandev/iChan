@@ -157,7 +157,11 @@ class ThreadsListState extends State<ThreadsList> {
           final pullToRefresh = ValueListenableBuilder<double>(
               valueListenable: scrollListener,
               builder: (BuildContext context, value, Widget child) {
-                final height = isIos ? my.contextTools.hasHomeButton ? 65.0 : 90.0 : 70.0;
+                final height = isIos
+                    ? my.contextTools.hasHomeButton
+                        ? 65.0
+                        : 90.0
+                    : 70.0;
 
                 if (value >= 1.0 || isRefreshing) {
                   if (!isRefreshing && searchController.text.isEmpty) {
@@ -191,7 +195,10 @@ class ThreadsListState extends State<ThreadsList> {
                     delegate: SliverChildListDelegate([
                       pullToRefresh,
                       searchBar,
-                      segmentedControl,
+                      if (!my.prefs.getBool('thread_mode_disabled'))
+                        segmentedControl
+                      else
+                        const SizedBox(height: 10),
                     ]),
                   ),
                   SliverGrid(
@@ -233,13 +240,16 @@ class ThreadsListState extends State<ThreadsList> {
                 return pullToRefresh;
                 // return SizedBox(height: 90.0);
               }
-              if (index == 2) {
-                return segmentedControl;
-              }
               if (index == 1) {
                 return searchBar;
               }
-
+              if (index == 2) {
+                if (my.prefs.getBool('thread_mode_disabled')) {
+                  return const SizedBox(width: 0, height: 10);
+                } else {
+                  return segmentedControl;
+                }
+              }
               if (state.threads.isEmpty) {
                 return Container();
               }

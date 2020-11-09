@@ -229,7 +229,7 @@ class _MenuEditField extends StatelessWidget {
           child: Text("Cancel", style: TextStyle(fontSize: 15.0)),
         ),
       ),
-      keyboardAppearance: Consts.keyboardAppearance,
+      keyboardAppearance: my.theme.brightness,
       keyboardType: keyboardType,
       readOnly: readOnly,
       enabled: controller != null,

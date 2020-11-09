@@ -18,7 +18,7 @@ class FormTextArea extends StatelessWidget {
   Widget build(BuildContext context) {
     final lines = getLines();
     return CupertinoTextField(
-      keyboardAppearance: Consts.keyboardAppearance,
+      keyboardAppearance: my.theme.brightness,
       keyboardType: TextInputType.multiline,
       textCapitalization: TextCapitalization.sentences,
       autofocus: true,

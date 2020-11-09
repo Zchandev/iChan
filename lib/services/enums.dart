@@ -15,5 +15,7 @@ enum Origin {
   search,
   mediaInfo,
   activity,
+  navigator,
+  favorites,
   example,
 }

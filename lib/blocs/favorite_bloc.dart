@@ -20,29 +20,53 @@ class FavoriteBloc extends Cubit<FavoriteState> {
 
   static const minRefreshTime = 1350;
   static const nonFavoriteRefreshTime = 24 * 3600;
+  int unreadThreads = 0;
+  int unreadReplies = 0;
+  int autoRefreshStartedAt = 0;
+  bool isRefreshing = false;
 
   final Repo repo;
   List<ThreadStorage> favoritesList;
   List<ThreadStorage> repliesList;
+
+  Future startAutoupdate() async {
+    if (isDebug) {
+      return;
+    }
+
+    Timer.periodic(3.minutes, (timer) {
+      print("Autorefresh started");
+
+      refresh(auto: true);
+    });
+  }
 
   Future reloadFavorites() async {
     favoritesList = _getFavoritesList();
     repliesList = _getRepliesList();
   }
 
-  Future refreshManual() async {
+  Future refresh({bool auto = false}) async {
+    if (auto) {
+      if (autoRefreshStartedAt.timeDiffInSeconds < 30) {
+        return;
+      }
+      autoRefreshStartedAt = DateTime.now().millisecondsSinceEpoch;
+    }
+
     favoritesList ??= _getFavoritesList();
     repliesList ??= _getRepliesList();
 
-    if (favoritesList.isEmpty && repliesList.isEmpty) {
+    if (isRefreshing || (favoritesList.isEmpty && repliesList.isEmpty)) {
       return;
     }
 
+    isRefreshing = true;
     final refreshStartedAt = DateTime.now().millisecondsSinceEpoch;
 
     emit(FavoriteReloading());
     emit(FavoriteRefreshInProgress());
-    final List<ThreadStorage> _list0 = favoritesList
+    final List<ThreadStorage> allList = favoritesList
         .where((e) => _isNotDeletedAndActive(e))
         .sortedBy((a, b) => b.visits != null ? b.visits.compareTo(a.visits) : 0)
         .toList();
@@ -52,9 +76,8 @@ class FavoriteBloc extends Cubit<FavoriteState> {
 
     final myThreads = favoritesList.where((e) => e.isOp).take(3).toList();
 
-    final _list = (myThreads + lastVisited + _list0 + repliesList).toSet().toList();
+    final _list = (myThreads + lastVisited + allList + repliesList).toSet().toList();
 
-    // Log.warn("Refresh ${_list.length} items");
     await _refeshAll(_list, force: _list.length <= 5);
     my.prefs.incrStats('favs_refreshed');
 
@@ -63,15 +86,24 @@ class FavoriteBloc extends Cubit<FavoriteState> {
     if (diff > 0) {
       await Future.delayed(Duration(milliseconds: diff));
     }
+    _calcUnreadReplies();
+    _calcUnreadThreads();
 
-    // print("Ready");
+    isRefreshing = false;
 
     emit(FavoriteReady());
   }
 
-  // maybe remove this
-  Future refreshAuto() async {
-    return await refreshManual();
+  Future updateUnreadReplies() async {
+    emit(FavoriteReloading());
+    _calcUnreadReplies();
+    emit(FavoriteReady());
+  }
+
+  Future updateUnreadThreads() async {
+    emit(FavoriteReloading());
+    _calcUnreadThreads();
+    emit(FavoriteReady());
   }
 
   Future clearDeleted() async {
@@ -193,98 +225,15 @@ class FavoriteBloc extends Cubit<FavoriteState> {
     }
   }
 
-  // @override
-  // Stream<FavoriteState> mapEventToState(FavoriteEvent event) async* {
-  //   favoritesList ??= List.from(my.favs.box.values.where((e) => e.isFavorite));
-  //   final repliesList = List<ThreadStorage>.from(my.favs.box.values.where((e) =>
-  //       e.ownPostsCount > 0 &&
-  //       e.status != Status.deleted &&
-  //       e.visitedAt.timeDiffInSeconds < 24 * 3600));
+  void _calcUnreadReplies() {
+    unreadReplies = my.posts.replies.where((e) => e.isUnread).length;
+  }
 
-  //   if (event is FavoriteRefreshAllPressed || event is FavoriteRefreshAllAuto) {
-  //     final refreshStartedAt = DateTime.now().millisecondsSinceEpoch;
-  //     if (favoritesList.isEmpty) {
-  //       return;
-  //     }
-
-  //     yield FavoriteReloading();
-  //     yield FavoriteRefreshInProgress();
-  //     final List<ThreadStorage> _list0 = favoritesList
-  //         .where((e) => isNotDeletedAndActive(e))
-  //         .sortedBy((a, b) => b.visits != null ? b.visits.compareTo(a.visits) : 0)
-  //         .toList();
-
-  //     final lastVisited =
-  //         favoritesList.sortedBy((a, b) => b.visitedAt.compareTo(a.visitedAt)).take(3).toList();
-
-  //     final myThreads = favoritesList.where((e) => e.isOp).take(3).toList();
-
-  //     final _list = (myThreads + lastVisited + _list0 + repliesList).toSet().toList();
-
-  //     yield* refeshAll(_list, force: _list.length <= 5);
-  //     my.prefs.incrStats('favs_refreshed');
-
-  //     final diff = minRefreshTime - refreshStartedAt.timeDiff;
-
-  //     if (diff > 0) {
-  //       await Future.delayed(Duration(milliseconds: diff));
-  //     }
-
-  //     yield FavoriteReady();
-  //   } else if (event is FavoriteClearDeleted) {
-  //     yield FavoriteReloading();
-
-  //     final keys =
-  //         my.favs.box.values.where((e) => e.status == Status.deleted).map((e) => e.key).toList();
-  //     my.favs.box.deleteAll(keys);
-
-  //     yield FavoriteReady();
-  //   } else if (event is FavoriteClearVisited) {
-  //     yield FavoriteReloading();
-
-  //     if (event.fav == null) {
-  //       final first = my.favs.box.values.first;
-  //       first.refreshedAt += 1;
-  //       first.save();
-
-  //       my.prefs.box.put("visited_cleared_at", DateTime.now().millisecondsSinceEpoch);
-  //     } else {
-  //       event.fav.delete();
-  //     }
-
-  //     yield FavoriteReady();
-  //   } else if (event is FavoriteDeleted) {
-  //     yield FavoriteReloading();
-  //     if (event.fav.isSaved) {
-  //       event.fav.delete();
-  //     } else {
-  //       event.fav.toggleFavorite();
-  //     }
-  //     yield FavoriteReady();
-  //   } else if (event is FavoriteUpdated) {
-  //     yield FavoriteReloading();
-  //     favoritesList = List.from(my.favs.box.values.where((e) => e.isFavorite));
-  //     yield FavoriteReady();
-  //   }
-  // }
-
-  // Stream<FavoriteState> refeshAll(List<ThreadStorage> _list, {bool force = false}) async* {
-  //   for (final fav in _list) {
-  //     if (!fav.isFavorite) {
-  //       if (_needToRefresh(fav)) {
-  //         await refresh(fav);
-  //       }
-  //     } else {
-  //       // TODO: parallel refresh on different platforms
-  //       yield FavoriteRefreshing(fav: fav, status: fav.status);
-  //       if (force || _needToRefresh(fav)) {
-  //         fav.status = Status.refreshing;
-  //         await refresh(fav);
-  //       }
-  //       yield FavoriteRefreshing(fav: fav, status: fav.status);
-  //     }
-  //   }
-  // }
+  void _calcUnreadThreads() {
+    unreadThreads =
+        favoritesList.where((e) => e.unreadCount > 0 && e.status != Status.deleted).length;
+    print("unreadThreads = ${unreadThreads}");
+  }
 
   bool _needToRefresh(ThreadStorage fav) {
     fav.extras['last_post_ts'] ??= fav.visitedAt;
@@ -309,29 +258,29 @@ class FavoriteBloc extends Cubit<FavoriteState> {
     }
 
     if (hoursDiff <= 0.2) {
-      result = true;
+      result = refreshDiff >= 2;
     } else if (hoursDiff <= 1) {
       // print("Diff is $hoursDiff for ${fav.threadTitle} is 5s");
-      result = refreshDiff >= 5;
-    } else if (hoursDiff <= 2) {
       result = refreshDiff >= 10;
+    } else if (hoursDiff <= 2) {
+      result = refreshDiff >= 20;
     } else if (hoursDiff <= 3) {
-      result = refreshDiff >= 30;
+      result = refreshDiff >= 60;
     } else if (hoursDiff <= 6) {
       // print("Diff is $hoursDiff for ${fav.threadTitle} is 15s");
-      result = refreshDiff >= 60;
+      result = refreshDiff >= 60 * 2;
     } else if (hoursDiff <= 12) {
       // print("Diff is $hoursDiff for ${fav.threadTitle} is 60s");
-      result = refreshDiff >= 60 * 2;
+      result = refreshDiff >= 60 * 3;
     } else if (hoursDiff <= 24) {
       // print("Diff is $hoursDiff for ${fav.threadTitle} is 120s");
-      result = refreshDiff >= 60 * 5;
+      result = refreshDiff >= 60 * 10;
     } else if (hoursDiff <= 48) {
       // print("Diff is $hoursDiff for ${fav.threadTitle} is 300s");
-      result = refreshDiff >= 60 * 10;
+      result = refreshDiff >= 60 * 30;
     } else {
       // print("Diff is $hoursDiff for ${fav.threadTitle} is 600");
-      result = refreshDiff >= 60 * 15;
+      result = refreshDiff >= 60 * 60;
     }
 
     // Log.warn(
@@ -344,51 +293,6 @@ class FavoriteBloc extends Cubit<FavoriteState> {
       fav.refresh != false && fav.status != Status.deleted && fav.status != Status.closed;
 }
 
-// abstract class FavoriteEvent extends Equatable {
-//   const FavoriteEvent();
-// }
-
-// class FavoriteUpdated extends FavoriteEvent {
-//   @override
-//   List<Object> get props => [];
-// }
-
-// class FavoriteRefreshAllPressed extends FavoriteEvent {
-//   @override
-//   List<Object> get props => [];
-// }
-
-// class FavoriteRefreshAllAuto extends FavoriteEvent {
-//   @override
-//   List<Object> get props => [];
-// }
-
-// class FavoriteDeleted extends FavoriteEvent {
-//   const FavoriteDeleted({this.fav});
-
-//   final ThreadStorage fav;
-
-//   @override
-//   List<Object> get props => [fav];
-// }
-
-// class FavoriteClearDeleted extends FavoriteEvent {
-//   const FavoriteClearDeleted();
-
-//   @override
-//   List<Object> get props => [];
-// }
-
-// class FavoriteClearVisited extends FavoriteEvent {
-//   const FavoriteClearVisited({this.fav});
-
-//   final ThreadStorage fav;
-
-//   @override
-//   List<Object> get props => [fav];
-// }
-
-// STATE
 abstract class FavoriteState extends Equatable {
   const FavoriteState({@required this.fav});
 

@@ -431,7 +431,10 @@ class UnreadRefreshButton extends StatelessWidget {
             if (unreadCount == 0) {
               my.threadBloc.add(ThreadRefreshStarted(thread: thread));
               ts.unreadPostId = threadData.posts.last.outerId;
-              ts.putOrSave();
+              ts.hasReplies = false;
+              ts.putOrSave().then((value) {
+                my.favoriteBloc.updateUnreadThreads();
+              });
 
               cooldown = DateTime.now().millisecondsSinceEpoch;
             }
