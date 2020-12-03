@@ -15,11 +15,16 @@ enum CaptchaStatus {
 
 // ignore: must_be_immutable
 class DvachCaptchaPage extends StatefulWidget {
-  DvachCaptchaPage({Key key, this.captchaClickCallback, @required this.isCaptchaVisible})
+  DvachCaptchaPage(
+      {Key key,
+      this.captchaClickCallback,
+      this.captchaSolvedCallback,
+      @required this.isCaptchaVisible})
       : super(key: key);
   // WebViewController webviewController;
   InAppWebViewController webviewController;
   final Function captchaClickCallback;
+  final Function captchaSolvedCallback;
   final ValueNotifier<bool> isCaptchaVisible;
 
   Future<String> getCaptchaResponse() async {
@@ -87,6 +92,12 @@ appendStyle = function (content) {
   document.head.appendChild(style);
 }
 appendStyle(`$css`);
+
+window.external = {
+  notify : function() {
+    window.flutter_inappwebview.callHandler('callback', 'solved').then(function(result) {});
+  }
+}
 
 function apply() {
   var metaTag=document.createElement('meta');
@@ -186,6 +197,14 @@ apply();
                 },
                 onWebViewCreated: (InAppWebViewController controller) {
                   widget.webviewController = controller;
+                  controller.addJavaScriptHandler(
+                    handlerName: "callback",
+                    callback: (args) {
+                      if (args[0] == 'solved') {
+                        widget.captchaSolvedCallback();
+                      }
+                    },
+                  );
                 },
                 onLoadStart: (InAppWebViewController controller, String url) {
                   widget.webviewController.evaluateJavascript(source: getStartJs());

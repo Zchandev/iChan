@@ -209,6 +209,7 @@ class NewPostPageState extends State<NewPostPage> with WidgetsBindingObserver {
       if (form.platform == Platform.dvach) {
         dvachCaptcha = DvachCaptchaPage(
           captchaClickCallback: captchaClickCallback,
+          captchaSolvedCallback: captchaSolvedCallback,
           isCaptchaVisible: isCaptchaVisible,
         );
       } else if (form.platform == Platform.fourchan) {
