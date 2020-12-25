@@ -18,7 +18,7 @@ Features:
 
 ![Screen2](https://zchan.app/assets/screen4.png)
 
-### Install on iOS
+### Install iChan on iOS
 
 1. Easy Way - One Tap Install
 
@@ -32,9 +32,7 @@ Features:
 - Compile this project to get ipa file
 - Open altstore app and select that ipa to install
 
-### Install on Android
-
-Google Play (Zchan):
+### Install Zchan on Android
 
 [https://play.google.com/store/apps/details?id=com.zchandev.zchanapp](https://play.google.com/store/apps/details?id=com.zchandev.zchanapp&referrer=utm_source%3Dgithub)
 
