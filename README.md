@@ -1,4 +1,4 @@
-# iChan (iOS + Android)
+# iChan (iOS) and Zchan (Android)
 
 Open source cross-platform client for popular imageboards: 4chan.org and 2ch.hk
 
@@ -34,8 +34,8 @@ Features:
 
 ### Install on Android
 
-Google Play:
-https://play.google.com/store/apps/details?id=com.zchandev.iChan
+Google Play (Zchan):
+https://play.google.com/store/apps/details?id=com.zchandev.zchanapp
 
 Android APK ARM v8:
 https://zchan.app/download/android/iChan.apk
