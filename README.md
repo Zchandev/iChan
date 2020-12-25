@@ -35,13 +35,8 @@ Features:
 ### Install on Android
 
 Google Play (Zchan):
-https://play.google.com/store/apps/details?id=com.zchandev.zchanapp
 
-Android APK ARM v8:
-https://zchan.app/download/android/iChan.apk
-
-Android APK ARM v7:
-https://zchan.app/download/android/iChan-x32.apk
+[https://play.google.com/store/apps/details?id=com.zchandev.zchanapp](https://play.google.com/store/apps/details?id=com.zchandev.zchanapp&referrer=utm_source%3Dgithub)
 
 ## How to compile
 
