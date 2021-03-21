@@ -15,7 +15,7 @@ class FourchanApi {
   FourchanApi({this.domain = 'https://a.4cdn.org'});
   String domain;
   static const defaultDomain = 'https://a.4cdn.org';
-  static const imageDomain = 'https://is2.4chan.org';
+  static const imageDomain = 'https://i.4cdn.org';
   static const postUrl = 'https://sys.4chan.org';
 
   final webDomain = 'https://boards.4chan.org';
