@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:iChan/models/thread.dart';
-import 'package:iChan/models/thread_storage.dart';
-import 'package:iChan/pages/activity_page.dart';
-import 'package:iChan/services/exports.dart';
+import 'package:ichan/models/thread.dart';
+import 'package:ichan/models/thread_storage.dart';
+import 'package:ichan/pages/activity_page.dart';
+import 'package:ichan/services/exports.dart';
 
-import 'package:iChan/pages/favorites_page.dart';
-import 'package:iChan/pages/settings_page.dart';
-import 'package:iChan/pages/categories_page.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/pages/favorites_page.dart';
+import 'package:ichan/pages/settings_page.dart';
+import 'package:ichan/pages/categories_page.dart';
+import 'package:ichan/services/my.dart' as my;
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);

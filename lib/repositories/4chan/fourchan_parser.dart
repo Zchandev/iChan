@@ -1,8 +1,8 @@
 import 'dart:convert';
-import 'package:iChan/models/media.dart';
-import 'package:iChan/models/platform.dart';
-import 'package:iChan/models/post.dart';
-import 'package:iChan/models/thread.dart';
+import 'package:ichan/models/media.dart';
+import 'package:ichan/models/platform.dart';
+import 'package:ichan/models/post.dart';
+import 'package:ichan/models/thread.dart';
 
 List<Media> fourchanFilesToMedia(Map json) {
   if (json['filename'] == null) {

@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/services/my.dart' as my;
 
 class TagButton extends StatelessWidget {
   const TagButton({

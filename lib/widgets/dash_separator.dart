@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/services/my.dart' as my;
 
 class DashSeparator extends StatelessWidget {
   const DashSeparator({
@@ -30,8 +30,7 @@ class DashSeparator extends StatelessWidget {
                 width: dashWidth,
                 height: dashHeight,
                 child: DecoratedBox(
-                  decoration:
-                      BoxDecoration(color: color ?? my.theme.primaryColor),
+                  decoration: BoxDecoration(color: color ?? my.theme.primaryColor),
                 ),
               );
             }),

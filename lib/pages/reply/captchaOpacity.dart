@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-import 'package:iChan/services/exports.dart';
+import 'package:ichan/services/exports.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/services/my.dart' as my;
 
 enum CaptchaStatus {
   loading,

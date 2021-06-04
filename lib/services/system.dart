@@ -2,10 +2,10 @@ import 'package:cookie_jar/cookie_jar.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/services.dart';
-import 'package:iChan/repositories/2ch/makaba_api.dart';
-import 'package:iChan/services/exports.dart';
+import 'package:ichan/repositories/2ch/makaba_api.dart';
+import 'package:ichan/services/exports.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/services/my.dart' as my;
 
 class System {
   static void cleanCache() {

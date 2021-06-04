@@ -3,11 +3,11 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 
-import 'package:iChan/models/models.dart';
-import 'package:iChan/repositories/repositories.dart';
-import 'package:iChan/services/enums.dart';
-import 'package:iChan/services/exceptions.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/models/models.dart';
+import 'package:ichan/repositories/repositories.dart';
+import 'package:ichan/services/enums.dart';
+import 'package:ichan/services/exceptions.dart';
+import 'package:ichan/services/my.dart' as my;
 
 // BLOC
 class CategoryBloc extends Cubit<CategoryState> {

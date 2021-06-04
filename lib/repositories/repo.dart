@@ -1,6 +1,6 @@
-import 'package:iChan/models/thread.dart';
-import 'package:iChan/repositories/api_proxy.dart';
-import 'package:iChan/services/enums.dart';
+import 'package:ichan/models/thread.dart';
+import 'package:ichan/repositories/api_proxy.dart';
+import 'package:ichan/services/enums.dart';
 
 class Repo {
   Repo(this.reposMap);

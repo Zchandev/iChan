@@ -3,10 +3,10 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/pages/settings/general_links_page.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/widgets/menu/menu.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/pages/settings/general_links_page.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/widgets/menu/menu.dart';
+import 'package:ichan/services/my.dart' as my;
 
 class SystemSettingsPage extends StatelessWidget {
   static const header = 'System';

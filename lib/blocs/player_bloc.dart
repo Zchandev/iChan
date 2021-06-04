@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:iChan/models/media.dart';
+import 'package:ichan/models/media.dart';
 
 // BLOC
 class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {

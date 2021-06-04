@@ -3,18 +3,18 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:iChan/blocs/blocs.dart';
-import 'package:iChan/blocs/thread/data.dart';
-import 'package:iChan/blocs/thread/event.dart';
-import 'package:iChan/blocs/thread/state.dart';
-import 'package:iChan/blocs/thread/thread_parser.dart';
+import 'package:ichan/blocs/blocs.dart';
+import 'package:ichan/blocs/thread/data.dart';
+import 'package:ichan/blocs/thread/event.dart';
+import 'package:ichan/blocs/thread/state.dart';
+import 'package:ichan/blocs/thread/thread_parser.dart';
 
-import 'package:iChan/models/models.dart';
-import 'package:iChan/models/thread_storage.dart';
-import 'package:iChan/repositories/repositories.dart';
-import 'package:iChan/services/exceptions.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/models/models.dart';
+import 'package:ichan/models/thread_storage.dart';
+import 'package:ichan/repositories/repositories.dart';
+import 'package:ichan/services/exceptions.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/my.dart' as my;
 
 class ThreadBloc extends Bloc<ThreadEvent, ThreadState> {
   ThreadBloc({@required this.repo}) : super(const ThreadEmpty());

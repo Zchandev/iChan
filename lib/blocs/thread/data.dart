@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-// import 'package:iChan/db/app_db.dart';
-import 'package:iChan/models/thread_storage.dart';
-import 'package:iChan/models/models.dart';
-import 'package:iChan/models/thread.dart';
-import 'package:iChan/services/exports.dart';
+// import 'package:ichan/db/app_db.dart';
+import 'package:ichan/models/thread_storage.dart';
+import 'package:ichan/models/models.dart';
+import 'package:ichan/models/thread.dart';
+import 'package:ichan/services/exports.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class ScrollData {

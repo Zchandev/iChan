@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:hive/hive.dart';
-import 'package:iChan/services/enums.dart';
+import 'package:ichan/services/enums.dart';
 
 part 'board.g.dart';
 

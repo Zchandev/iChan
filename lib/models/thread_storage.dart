@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:hive/hive.dart';
-import 'package:iChan/models/platform.dart';
-import 'package:iChan/models/thread.dart';
-import 'package:iChan/services/htmlz.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/models/platform.dart';
+import 'package:ichan/models/thread.dart';
+import 'package:ichan/services/htmlz.dart';
+import 'package:ichan/services/my.dart' as my;
 
 part 'thread_storage.g.dart';
 

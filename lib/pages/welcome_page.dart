@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/pages/home_page.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/my.dart' as my;
-import 'package:iChan/widgets/shimmer_widget.dart';
+import 'package:ichan/pages/home_page.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/my.dart' as my;
+import 'package:ichan/widgets/shimmer_widget.dart';
 
 class WelcomePage extends StatelessWidget {
   @override

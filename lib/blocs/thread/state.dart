@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:equatable/equatable.dart';
-import 'package:iChan/blocs/thread/data.dart';
+import 'package:ichan/blocs/thread/data.dart';
 
 //////////////////////////////
 /////////  STATES  ///////////

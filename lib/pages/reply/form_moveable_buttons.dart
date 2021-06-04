@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:iChan/pages/reply/quote_button.dart';
-import 'package:iChan/pages/reply/tag_button.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/pages/reply/quote_button.dart';
+import 'package:ichan/pages/reply/tag_button.dart';
+import 'package:ichan/services/my.dart' as my;
 
 class FormMoveableButtons extends StatelessWidget {
   const FormMoveableButtons({Key key, this.controller, this.position}) : super(key: key);

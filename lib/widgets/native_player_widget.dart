@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/blocs/player_bloc.dart';
-import 'package:iChan/models/media.dart';
-import 'package:iChan/services/exports.dart';
+import 'package:ichan/blocs/player_bloc.dart';
+import 'package:ichan/models/media.dart';
+import 'package:ichan/services/exports.dart';
 import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,8 +16,7 @@ class NativePlayerWidget extends StatefulWidget {
   _NativePlayerWidgetState createState() => _NativePlayerWidgetState();
 }
 
-class _NativePlayerWidgetState extends State<NativePlayerWidget>
-    with WidgetsBindingObserver {
+class _NativePlayerWidgetState extends State<NativePlayerWidget> with WidgetsBindingObserver {
   VideoPlayerController playerController;
   ChewieController chewieController;
   Future<void> _future;

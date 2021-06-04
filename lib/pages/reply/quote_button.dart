@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/my.dart' as my;
 
 class QuoteButton extends StatelessWidget {
   const QuoteButton({

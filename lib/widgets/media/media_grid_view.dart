@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:iChan/blocs/thread/data.dart';
-import 'package:iChan/models/media.dart';
-import 'package:iChan/services/consts.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/my.dart' as my;
-import 'package:iChan/widgets/media/selectable_media.dart';
-import 'package:iChan/widgets/media/gallery_media.dart';
+import 'package:ichan/blocs/thread/data.dart';
+import 'package:ichan/models/media.dart';
+import 'package:ichan/services/consts.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/my.dart' as my;
+import 'package:ichan/widgets/media/selectable_media.dart';
+import 'package:ichan/widgets/media/gallery_media.dart';
 
 import 'media_extension.dart';
 

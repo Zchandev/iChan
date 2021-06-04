@@ -1,11 +1,11 @@
 import 'dart:convert';
-import 'package:iChan/models/media.dart';
-import 'package:iChan/models/platform.dart';
-import 'package:iChan/models/post.dart';
-import 'package:iChan/models/thread.dart';
+import 'package:ichan/models/media.dart';
+import 'package:ichan/models/platform.dart';
+import 'package:ichan/models/post.dart';
+import 'package:ichan/models/thread.dart';
 
 // DO NOT ADD MY
-// import 'package:iChan/services/my.dart' as my;
+// import 'package:ichan/services/my.dart' as my;
 
 Future<Map<String, dynamic>> makabaProcessPosts(Map<String, String> args) async {
   final data = json.decode(args['data']) as Map<String, dynamic>;

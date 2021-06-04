@@ -1,11 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/services/my.dart' as my;
 
 class ShimmerLoader extends StatefulWidget {
-  const ShimmerLoader(
-      {Key key, this.text = "Loading...", this.debugInfo = "loading..."})
+  const ShimmerLoader({Key key, this.text = "Loading...", this.debugInfo = "loading..."})
       : super(key: key);
 
   final String text;
@@ -15,16 +14,14 @@ class ShimmerLoader extends StatefulWidget {
   ShimmerLoaderState createState() => ShimmerLoaderState();
 }
 
-class ShimmerLoaderState extends State<ShimmerLoader>
-    with SingleTickerProviderStateMixin {
+class ShimmerLoaderState extends State<ShimmerLoader> with SingleTickerProviderStateMixin {
   Animation<double> animation;
   AnimationController controller;
 
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(
-        duration: const Duration(milliseconds: 1500), vsync: this);
+    controller = AnimationController(duration: const Duration(milliseconds: 1500), vsync: this);
     animation = CurvedAnimation(parent: controller, curve: Curves.easeInQuad)
       ..addStatusListener((status) {
         if (status == AnimationStatus.dismissed) {

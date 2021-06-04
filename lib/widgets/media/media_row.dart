@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/blocs/thread/data.dart';
-import 'package:iChan/models/models.dart';
-import 'package:iChan/pages/thread/thread.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/my.dart' as my;
-import 'package:iChan/widgets/media/gallery_media.dart';
+import 'package:ichan/blocs/thread/data.dart';
+import 'package:ichan/models/models.dart';
+import 'package:ichan/pages/thread/thread.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/my.dart' as my;
+import 'package:ichan/widgets/media/gallery_media.dart';
 
 import 'media_extension.dart';
 

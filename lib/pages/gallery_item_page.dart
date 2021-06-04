@@ -1,20 +1,20 @@
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbar_manager/flutter_statusbar_manager.dart';
-import 'package:iChan/blocs/thread/barrel.dart';
-import 'package:iChan/models/media.dart';
-import 'package:iChan/pages/gallery_page.dart';
-import 'package:iChan/pages/thread/thread.dart';
+import 'package:ichan/blocs/thread/barrel.dart';
+import 'package:ichan/models/media.dart';
+import 'package:ichan/pages/gallery_page.dart';
+import 'package:ichan/pages/thread/thread.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/ui/haptic.dart';
-import 'package:iChan/services/my.dart' as my;
-import 'package:iChan/widgets/media/media_actions.dart';
-import 'package:iChan/widgets/media/media_info.dart';
-import 'package:iChan/widgets/media/zoomable_image.dart';
-import 'package:iChan/widgets/my/my_dismissible.dart';
-import 'package:iChan/widgets/native_player_widget.dart';
-import 'package:iChan/widgets/webm_player_widget.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/ui/haptic.dart';
+import 'package:ichan/services/my.dart' as my;
+import 'package:ichan/widgets/media/media_actions.dart';
+import 'package:ichan/widgets/media/media_info.dart';
+import 'package:ichan/widgets/media/zoomable_image.dart';
+import 'package:ichan/widgets/my/my_dismissible.dart';
+import 'package:ichan/widgets/native_player_widget.dart';
+import 'package:ichan/widgets/webm_player_widget.dart';
 
 class GalleryItemPage extends StatefulWidget {
   const GalleryItemPage({

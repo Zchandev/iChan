@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/services/consts.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/widgets/menu/menu.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/services/consts.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/widgets/menu/menu.dart';
+import 'package:ichan/services/my.dart' as my;
 import 'package:directory_picker/directory_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';

@@ -1,12 +1,12 @@
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/models/platform.dart';
-import 'package:iChan/models/thread_storage.dart';
-import 'package:iChan/models/media.dart';
-import 'package:iChan/services/consts.dart';
-import 'package:iChan/services/extensions.dart';
-import 'package:iChan/services/my.dart' as my;
-import 'package:iChan/services/htmlz.dart';
+import 'package:ichan/models/platform.dart';
+import 'package:ichan/models/thread_storage.dart';
+import 'package:ichan/models/media.dart';
+import 'package:ichan/services/consts.dart';
+import 'package:ichan/services/extensions.dart';
+import 'package:ichan/services/my.dart' as my;
+import 'package:ichan/services/htmlz.dart';
 
 class Thread {
   Thread(

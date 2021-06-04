@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/blocs/blocs.dart';
-import 'package:iChan/models/thread_storage.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/blocs/blocs.dart';
+import 'package:ichan/models/thread_storage.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/my.dart' as my;
 
 import 'favorites.dart';
 

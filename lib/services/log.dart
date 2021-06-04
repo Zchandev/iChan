@@ -1,6 +1,6 @@
 import 'dart:developer';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/my.dart' as my;
 
 class Log {
   static List<String> all = [];

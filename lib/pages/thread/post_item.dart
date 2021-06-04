@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:iChan/blocs/thread/barrel.dart';
-// import 'package:iChan/db/app_db.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/ui/haptic.dart';
-import 'package:iChan/services/my.dart' as my;
-import 'package:iChan/widgets/media/media_row.dart';
+import 'package:ichan/blocs/thread/barrel.dart';
+// import 'package:ichan/db/app_db.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/ui/haptic.dart';
+import 'package:ichan/services/my.dart' as my;
+import 'package:ichan/widgets/media/media_row.dart';
 import 'thread.dart';
 
 class PostItem extends HookWidget {

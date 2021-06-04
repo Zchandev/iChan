@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/services/consts.dart';
+import 'package:ichan/services/consts.dart';
 
 class BlurFilter extends StatelessWidget {
   const BlurFilter({

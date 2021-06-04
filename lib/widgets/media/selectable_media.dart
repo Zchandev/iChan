@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:iChan/models/media.dart';
-import 'package:iChan/pages/gallery_item_page.dart';
-import 'package:iChan/services/enums.dart';
-import 'package:iChan/services/routz.dart';
+import 'package:ichan/models/media.dart';
+import 'package:ichan/pages/gallery_item_page.dart';
+import 'package:ichan/services/enums.dart';
+import 'package:ichan/services/routz.dart';
 
 import 'media_thumbnail.dart';
 

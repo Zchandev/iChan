@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-import 'package:iChan/blocs/blocs.dart';
-import 'package:iChan/blocs/thread/barrel.dart';
-import 'package:iChan/pages/thread/thread.dart';
-import 'package:iChan/services/exports.dart';
+import 'package:ichan/blocs/blocs.dart';
+import 'package:ichan/blocs/thread/barrel.dart';
+import 'package:ichan/pages/thread/thread.dart';
+import 'package:ichan/services/exports.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:iChan/widgets/media/media_actions.dart';
-import 'package:iChan/widgets/pip_window.dart';
+import 'package:ichan/widgets/media/media_actions.dart';
+import 'package:ichan/widgets/pip_window.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:flutter/foundation.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/services/my.dart' as my;
 
 class ThreadPage extends StatefulWidget {
   const ThreadPage({

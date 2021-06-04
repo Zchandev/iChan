@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iChan/pages/thread/thread.dart';
-import 'package:iChan/services/consts.dart';
-import 'package:iChan/ui/haptic.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/pages/thread/thread.dart';
+import 'package:ichan/services/consts.dart';
+import 'package:ichan/ui/haptic.dart';
+import 'package:ichan/services/my.dart' as my;
 
 class MenuTextField extends StatefulWidget {
   const MenuTextField({

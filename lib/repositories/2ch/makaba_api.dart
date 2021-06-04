@@ -3,14 +3,14 @@ import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/adapter.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/blocs/post_bloc.dart';
-import 'package:iChan/services/exceptions.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/blocs/post_bloc.dart';
+import 'package:ichan/services/exceptions.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/my.dart' as my;
 
 import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
-import 'package:iChan/models/models.dart';
+import 'package:ichan/models/models.dart';
 
 class MakabaApi {
   MakabaApi({@required this.domain});

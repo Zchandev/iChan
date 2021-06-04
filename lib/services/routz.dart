@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/blocs/thread/barrel.dart';
-import 'package:iChan/models/thread_storage.dart';
-import 'package:iChan/models/models.dart';
-import 'package:iChan/pages/board_page.dart';
-import 'package:iChan/pages/thread_page.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/my.dart' as my;
-import 'package:iChan/widgets/fade_route.dart';
-import 'package:iChan/widgets/my/my_cupertino_page_route.dart';
+import 'package:ichan/blocs/thread/barrel.dart';
+import 'package:ichan/models/thread_storage.dart';
+import 'package:ichan/models/models.dart';
+import 'package:ichan/pages/board_page.dart';
+import 'package:ichan/pages/thread_page.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/my.dart' as my;
+import 'package:ichan/widgets/fade_route.dart';
+import 'package:ichan/widgets/my/my_cupertino_page_route.dart';
 
 class Routz {
   Routz(this.context);

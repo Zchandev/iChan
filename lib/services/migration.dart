@@ -1,7 +1,7 @@
-import 'package:iChan/models/board.dart';
-import 'package:iChan/models/thread_storage.dart';
-import 'package:iChan/services/enums.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/models/board.dart';
+import 'package:ichan/models/thread_storage.dart';
+import 'package:ichan/services/enums.dart';
+import 'package:ichan/services/my.dart' as my;
 
 class Migration {
   static const current = 8;

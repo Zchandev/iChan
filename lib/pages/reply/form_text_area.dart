@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/my.dart' as my;
 
 import '../new_post_page.dart';
 

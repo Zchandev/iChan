@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:iChan/pages/thread/thread.dart';
-import 'package:iChan/services/consts.dart';
-import 'package:iChan/services/my.dart' as my;
-import 'package:iChan/ui/interactive.dart';
+import 'package:ichan/pages/thread/thread.dart';
+import 'package:ichan/services/consts.dart';
+import 'package:ichan/services/my.dart' as my;
+import 'package:ichan/ui/interactive.dart';
 
 class MenuSwitch extends StatelessWidget {
   const MenuSwitch({

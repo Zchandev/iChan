@@ -1,11 +1,11 @@
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:iChan/models/media.dart';
-import 'package:iChan/services/enums.dart';
-import 'package:iChan/services/system.dart';
-import 'package:iChan/services/my.dart' as my;
-import 'package:iChan/widgets/media/rounded_image.dart';
+import 'package:ichan/models/media.dart';
+import 'package:ichan/services/enums.dart';
+import 'package:ichan/services/system.dart';
+import 'package:ichan/services/my.dart' as my;
+import 'package:ichan/widgets/media/rounded_image.dart';
 
 class MediaThumbnail extends StatelessWidget {
   const MediaThumbnail({

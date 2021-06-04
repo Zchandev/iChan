@@ -6,11 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:iChan/blocs/blocs.dart';
-import 'package:iChan/models/thread_storage.dart';
-import 'package:iChan/pages/thread/thread.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/blocs/blocs.dart';
+import 'package:ichan/models/thread_storage.dart';
+import 'package:ichan/pages/thread/thread.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/my.dart' as my;
 import 'package:simple_animations/simple_animations.dart';
 import 'package:supercharged/supercharged.dart';
 

@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/htmlz.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/htmlz.dart';
+import 'package:ichan/services/my.dart' as my;
 
 import 'thread.dart';
 

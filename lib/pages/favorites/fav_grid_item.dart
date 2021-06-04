@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:iChan/blocs/blocs.dart';
-import 'package:iChan/models/thread_storage.dart';
-import 'package:iChan/models/thread.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/blocs/blocs.dart';
+import 'package:ichan/models/thread_storage.dart';
+import 'package:ichan/models/thread.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/my.dart' as my;
 
 class FavGridItem extends StatelessWidget {
   const FavGridItem({Key key, this.fav}) : super(key: key);

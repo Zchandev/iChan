@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:iChan/blocs/thread/barrel.dart';
-import 'package:iChan/blocs/thread/data.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/widgets/dash_separator.dart';
-import 'package:iChan/widgets/shimmer_widget.dart';
-import 'package:iChan/widgets/tap_to_reload.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/blocs/thread/barrel.dart';
+import 'package:ichan/blocs/thread/data.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/widgets/dash_separator.dart';
+import 'package:ichan/widgets/shimmer_widget.dart';
+import 'package:ichan/widgets/tap_to_reload.dart';
+import 'package:ichan/services/my.dart' as my;
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import 'thread.dart';

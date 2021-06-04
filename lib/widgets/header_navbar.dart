@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/pages/favorites_page.dart';
-import 'package:iChan/services/consts.dart';
-import 'package:iChan/services/my.dart' as my;
-import 'package:iChan/services/extensions.dart';
-import 'package:iChan/services/routz.dart';
-import 'package:iChan/widgets/my/my_cupertino_page_scaffold.dart';
+import 'package:ichan/pages/favorites_page.dart';
+import 'package:ichan/services/consts.dart';
+import 'package:ichan/services/my.dart' as my;
+import 'package:ichan/services/extensions.dart';
+import 'package:ichan/services/routz.dart';
+import 'package:ichan/widgets/my/my_cupertino_page_scaffold.dart';
 
 class HeaderNavbar extends StatelessWidget {
   const HeaderNavbar({

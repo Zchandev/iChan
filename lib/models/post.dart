@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:hive/hive.dart';
-import 'package:iChan/models/thread.dart';
-import 'package:iChan/services/enums.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/htmlz.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/models/thread.dart';
+import 'package:ichan/services/enums.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/htmlz.dart';
+import 'package:ichan/services/my.dart' as my;
 import 'media.dart';
 
 part 'post.g.dart';

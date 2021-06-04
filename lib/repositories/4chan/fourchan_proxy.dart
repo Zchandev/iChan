@@ -3,15 +3,15 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:iChan/models/board.dart';
-import 'package:iChan/models/platform.dart';
-import 'package:iChan/models/post.dart';
-import 'package:iChan/models/thread.dart';
-import 'package:iChan/repositories/4chan/fourchan_api.dart';
-import 'package:iChan/repositories/4chan/fourchan_parser.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/image_process.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/models/board.dart';
+import 'package:ichan/models/platform.dart';
+import 'package:ichan/models/post.dart';
+import 'package:ichan/models/thread.dart';
+import 'package:ichan/repositories/4chan/fourchan_api.dart';
+import 'package:ichan/repositories/4chan/fourchan_parser.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/image_process.dart';
+import 'package:ichan/services/my.dart' as my;
 
 import '../api_proxy.dart';
 

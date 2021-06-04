@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/consts.dart';
-import 'package:iChan/widgets/menu/menu.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/consts.dart';
+import 'package:ichan/widgets/menu/menu.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/services/my.dart' as my;
 
 class AboutSettingsPage extends StatefulWidget {
   const AboutSettingsPage({Key key}) : super(key: key);

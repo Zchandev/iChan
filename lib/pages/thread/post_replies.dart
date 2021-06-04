@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:iChan/blocs/thread/barrel.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/my.dart' as my;
-import 'package:iChan/widgets/blur_filter.dart';
+import 'package:ichan/blocs/thread/barrel.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/my.dart' as my;
+import 'package:ichan/widgets/blur_filter.dart';
 
 import 'thread.dart';
 

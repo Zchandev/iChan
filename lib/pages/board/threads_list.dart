@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:iChan/blocs/board_bloc.dart';
-import 'package:iChan/models/models.dart';
-import 'package:iChan/pages/board/image_data.dart';
-import 'package:iChan/pages/board/thread_item.dart';
-import 'package:iChan/pages/thread/animated_opacity_item.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/my.dart' as my;
-import 'package:iChan/widgets/search_bar.dart';
-import 'package:iChan/widgets/shimmer_widget.dart';
-import 'package:iChan/widgets/tap_to_reload.dart';
+import 'package:ichan/blocs/board_bloc.dart';
+import 'package:ichan/models/models.dart';
+import 'package:ichan/pages/board/image_data.dart';
+import 'package:ichan/pages/board/thread_item.dart';
+import 'package:ichan/pages/thread/animated_opacity_item.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/my.dart' as my;
+import 'package:ichan/widgets/search_bar.dart';
+import 'package:ichan/widgets/shimmer_widget.dart';
+import 'package:ichan/widgets/tap_to_reload.dart';
 
 class ThreadsList extends StatefulWidget {
   const ThreadsList({

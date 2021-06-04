@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/models/models.dart';
-import 'package:iChan/pages/board/threads_list.dart';
-import 'package:iChan/pages/thread/thread.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/models/models.dart';
+import 'package:ichan/pages/board/threads_list.dart';
+import 'package:ichan/pages/thread/thread.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/my.dart' as my;
 
 class BoardPage extends StatelessWidget {
   BoardPage({

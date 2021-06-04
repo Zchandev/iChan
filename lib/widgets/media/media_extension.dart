@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/models/models.dart';
-import 'package:iChan/pages/thread/thread.dart';
+import 'package:ichan/models/models.dart';
+import 'package:ichan/pages/thread/thread.dart';
 
 class MediaExtension extends StatelessWidget {
   const MediaExtension({Key key, @required this.media}) : super(key: key);

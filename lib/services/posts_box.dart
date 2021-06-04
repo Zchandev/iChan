@@ -1,7 +1,7 @@
 import 'package:hive/hive.dart';
-import 'package:iChan/models/post.dart';
-import 'package:iChan/services/box_proxy.dart';
-import 'package:iChan/services/exports.dart';
+import 'package:ichan/models/post.dart';
+import 'package:ichan/services/box_proxy.dart';
+import 'package:ichan/services/exports.dart';
 
 class PostsBox extends BoxProxy {
   PostsBox({this.box});

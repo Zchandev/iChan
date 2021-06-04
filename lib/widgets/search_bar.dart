@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/services/my.dart' as my;
 
 class SearchBar extends StatelessWidget {
   const SearchBar(
@@ -28,8 +28,7 @@ class SearchBar extends StatelessWidget {
       autofocus: autofocus,
       focusNode: focusNode,
       controller: controller,
-      toolbarOptions: const ToolbarOptions(
-          copy: true, paste: true, selectAll: true, cut: true),
+      toolbarOptions: const ToolbarOptions(copy: true, paste: true, selectAll: true, cut: true),
       clearButtonMode: OverlayVisibilityMode.editing,
       prefix: const Padding(
         padding: EdgeInsets.only(left: 12.0, bottom: 2.0),

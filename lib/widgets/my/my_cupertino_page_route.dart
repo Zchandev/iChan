@@ -14,7 +14,7 @@ import 'package:flutter/src/cupertino/colors.dart';
 import 'package:flutter/src/cupertino/interface_level.dart';
 // ignore: implementation_imports
 import 'package:flutter/src/cupertino/localizations.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/services/my.dart' as my;
 
 final fastAnimation = !my.prefs.getBool('slow_animation');
 

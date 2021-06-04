@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:iChan/blocs/thread/data.dart';
-import 'package:iChan/blocs/thread/event.dart';
-import 'package:iChan/models/models.dart';
-import 'package:iChan/pages/gallery_item_page.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/blocs/thread/data.dart';
+import 'package:ichan/blocs/thread/event.dart';
+import 'package:ichan/models/models.dart';
+import 'package:ichan/pages/gallery_item_page.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/my.dart' as my;
 
 import 'media_actions.dart';
 import 'media_thumbnail.dart';

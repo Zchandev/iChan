@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:iChan/blocs/player_bloc.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/widgets/youtube_player_widget.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/blocs/player_bloc.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/widgets/youtube_player_widget.dart';
+import 'package:ichan/services/my.dart' as my;
 
 class PipWindow extends StatefulWidget {
   const PipWindow({Key key}) : super(key: key);

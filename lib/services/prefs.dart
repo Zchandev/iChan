@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:hive/hive.dart';
-import 'package:iChan/models/platform.dart';
-import 'package:iChan/services/box_proxy.dart';
+import 'package:ichan/models/platform.dart';
+import 'package:ichan/services/box_proxy.dart';
 
 import 'exports.dart';
 

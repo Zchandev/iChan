@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:iChan/blocs/thread/data.dart';
-import 'package:iChan/services/my.dart' as my;
-import 'package:iChan/services/exports.dart';
+import 'package:ichan/blocs/thread/data.dart';
+import 'package:ichan/services/my.dart' as my;
+import 'package:ichan/services/exports.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/widgets/media/media_actions.dart';
-import 'package:iChan/widgets/media/media_grid_view.dart';
+import 'package:ichan/widgets/media/media_actions.dart';
+import 'package:ichan/widgets/media/media_grid_view.dart';
 
 class GalleryPage extends StatelessWidget with MediaActions {
   const GalleryPage({

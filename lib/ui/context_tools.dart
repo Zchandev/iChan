@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-import 'package:iChan/services/exports.dart';
+import 'package:ichan/services/exports.dart';
 
 class ContextTools {
   static const platform = MethodChannel('zchandev/homebutton');

@@ -4,12 +4,12 @@ import 'package:extended_image/extended_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import 'package:iChan/models/models.dart';
-// import 'package:iChan/pages/thread/animated_opacity_item.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/widgets/media/slideable_image.dart';
+import 'package:ichan/models/models.dart';
+// import 'package:ichan/pages/thread/animated_opacity_item.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/widgets/media/slideable_image.dart';
 
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/services/my.dart' as my;
 
 typedef DoubleClickAnimationListener = void Function();
 

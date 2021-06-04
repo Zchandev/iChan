@@ -2,11 +2,11 @@ import 'dart:typed_data';
 
 import 'package:extended_image/extended_image.dart';
 import 'package:gallery_saver/gallery_saver.dart';
-import 'package:iChan/models/media.dart';
-import 'package:iChan/services/exceptions.dart';
-import 'package:iChan/services/file_tools.dart';
-import 'package:iChan/services/my.dart' as my;
-import 'package:iChan/services/exports.dart';
+import 'package:ichan/models/media.dart';
+import 'package:ichan/services/exceptions.dart';
+import 'package:ichan/services/file_tools.dart';
+import 'package:ichan/services/my.dart' as my;
+import 'package:ichan/services/exports.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:wc_flutter_share/wc_flutter_share.dart';

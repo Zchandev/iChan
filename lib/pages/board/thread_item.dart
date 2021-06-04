@@ -1,16 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:iChan/blocs/board_bloc.dart';
-import 'package:iChan/blocs/thread/data.dart';
-import 'package:iChan/models/models.dart';
-import 'package:iChan/pages/board/image_data.dart';
-import 'package:iChan/pages/board/thread_image.dart';
-import 'package:iChan/pages/thread/post_body.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/htmlz.dart';
-import 'package:iChan/services/my.dart' as my;
-import 'package:iChan/widgets/media/media_row.dart';
+import 'package:ichan/blocs/board_bloc.dart';
+import 'package:ichan/blocs/thread/data.dart';
+import 'package:ichan/models/models.dart';
+import 'package:ichan/pages/board/image_data.dart';
+import 'package:ichan/pages/board/thread_image.dart';
+import 'package:ichan/pages/thread/post_body.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/htmlz.dart';
+import 'package:ichan/services/my.dart' as my;
+import 'package:ichan/widgets/media/media_row.dart';
 
 class ThreadItem extends StatefulWidget {
   const ThreadItem({

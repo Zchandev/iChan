@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:iChan/pages/settings/settings.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/widgets/menu/menu.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/pages/settings/settings.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/widgets/menu/menu.dart';
+import 'package:ichan/services/my.dart' as my;
 
 class SettingsPage extends StatelessWidget {
   @override

@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iChan/blocs/blocs.dart';
-import 'package:iChan/pages/categories/category_list.dart';
-import 'package:iChan/pages/thread/thread.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/blocs/blocs.dart';
+import 'package:ichan/pages/categories/category_list.dart';
+import 'package:ichan/pages/thread/thread.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/my.dart' as my;
 
 class CategoriesPage extends StatefulWidget {
   const CategoriesPage({Key key}) : super(key: key);

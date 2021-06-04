@@ -1,5 +1,5 @@
 import 'package:hive/hive.dart';
-import 'package:iChan/models/thread_storage.dart';
+import 'package:ichan/models/thread_storage.dart';
 
 class BoxProxy {
   const BoxProxy({this.box});

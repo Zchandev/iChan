@@ -1,13 +1,13 @@
 import 'dart:math' as math;
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/blocs/thread/barrel.dart';
-// import 'package:iChan/pages/thread/gallery_page.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/my.dart' as my;
-import 'package:iChan/widgets/blur_filter.dart';
-import 'package:iChan/widgets/my/my_cupertino_button.dart';
-import 'package:iChan/widgets/search_bar.dart';
+import 'package:ichan/blocs/thread/barrel.dart';
+// import 'package:ichan/pages/thread/gallery_page.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/my.dart' as my;
+import 'package:ichan/widgets/blur_filter.dart';
+import 'package:ichan/widgets/my/my_cupertino_button.dart';
+import 'package:ichan/widgets/search_bar.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'thread.dart';
 

@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/blocs/thread/data.dart';
+import 'package:ichan/blocs/thread/data.dart';
 import 'package:equatable/equatable.dart';
-import 'package:iChan/models/post.dart';
-import 'package:iChan/models/thread.dart';
-import 'package:iChan/models/thread_storage.dart';
+import 'package:ichan/models/post.dart';
+import 'package:ichan/models/thread.dart';
+import 'package:ichan/models/thread_storage.dart';
 
 //////////////////////////////
 /////////  EVENTS  ///////////

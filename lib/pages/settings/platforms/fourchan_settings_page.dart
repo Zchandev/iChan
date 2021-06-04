@@ -3,11 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-import 'package:iChan/pages/settings/platforms_links_page.dart';
-import 'package:iChan/repositories/4chan/fourchan_api.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/widgets/menu/menu.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/pages/settings/platforms_links_page.dart';
+import 'package:ichan/repositories/4chan/fourchan_api.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/widgets/menu/menu.dart';
+import 'package:ichan/services/my.dart' as my;
 
 class FourchanSettingsPage extends HookWidget {
   String setDomain(String domain) {

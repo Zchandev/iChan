@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:iChan/services/extensions.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/services/extensions.dart';
+import 'package:ichan/services/my.dart' as my;
 
 class LoadingListPage extends StatefulWidget {
   const LoadingListPage({this.count});
@@ -86,8 +86,7 @@ class _LoadingListPageState extends State<LoadingListPage> {
                 enabled: true,
                 child: ListView.separated(
                   physics: const NeverScrollableScrollPhysics(),
-                  separatorBuilder: (context, index) =>
-                      Divider(color: my.theme.dividerColor),
+                  separatorBuilder: (context, index) => Divider(color: my.theme.dividerColor),
                   itemBuilder: (_, __) {
                     return listItems;
                   },

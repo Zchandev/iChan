@@ -5,18 +5,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:iChan/blocs/blocs.dart';
-import 'package:iChan/blocs/thread/data.dart';
-import 'package:iChan/models/models.dart';
-import 'package:iChan/models/thread_storage.dart';
-import 'package:iChan/pages/reply/fourchan_captcha.dart';
-import 'package:iChan/pages/reply/reply.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/file_tools.dart';
-import 'package:iChan/ui/haptic.dart';
-import 'package:iChan/services/my.dart' as my;
-import 'package:iChan/widgets/media/rounded_image.dart';
-import 'package:iChan/widgets/media/zoomable_image.dart';
+import 'package:ichan/blocs/blocs.dart';
+import 'package:ichan/blocs/thread/data.dart';
+import 'package:ichan/models/models.dart';
+import 'package:ichan/models/thread_storage.dart';
+import 'package:ichan/pages/reply/fourchan_captcha.dart';
+import 'package:ichan/pages/reply/reply.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/file_tools.dart';
+import 'package:ichan/ui/haptic.dart';
+import 'package:ichan/services/my.dart' as my;
+import 'package:ichan/widgets/media/rounded_image.dart';
+import 'package:ichan/widgets/media/zoomable_image.dart';
 
 class FormUI {
   FormUI({

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:iChan/services/extensions.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/services/extensions.dart';
+import 'package:ichan/services/my.dart' as my;
 
 class UnreadSeparator extends StatelessWidget {
   const UnreadSeparator({

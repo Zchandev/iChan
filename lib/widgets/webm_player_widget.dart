@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:iChan/blocs/player_bloc.dart';
+import 'package:ichan/blocs/player_bloc.dart';
 
-import 'package:iChan/models/media.dart';
-import 'package:iChan/services/extensions.dart';
+import 'package:ichan/models/media.dart';
+import 'package:ichan/services/extensions.dart';
 
 import 'package:flutter_vlc_player/flutter_vlc_player.dart';
 // class WebmPlayerWidget extends StatelessWidget {

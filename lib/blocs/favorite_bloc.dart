@@ -4,15 +4,15 @@ import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:iChan/blocs/thread/event.dart';
-import 'package:iChan/models/thread_storage.dart';
-import 'package:iChan/models/post.dart';
+import 'package:ichan/blocs/thread/event.dart';
+import 'package:ichan/models/thread_storage.dart';
+import 'package:ichan/models/post.dart';
 
-import 'package:iChan/repositories/repositories.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/extensions.dart';
+import 'package:ichan/repositories/repositories.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/extensions.dart';
 import 'package:retry/retry.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/services/my.dart' as my;
 
 // Upgraded to Cubit instead of Bloc
 class FavoriteBloc extends Cubit<FavoriteState> {

@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/models/post.dart';
-import 'package:iChan/models/thread.dart';
+import 'package:ichan/models/post.dart';
+import 'package:ichan/models/thread.dart';
 
 abstract class ApiProxy {
   Future<Map<String, dynamic>> fetchBoards();

@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:iChan/blocs/thread/data.dart';
-import 'package:iChan/models/post.dart';
-import 'package:iChan/models/thread.dart';
-import 'package:iChan/models/thread_storage.dart';
-import 'package:iChan/pages/activity/history_list.dart';
-import 'package:iChan/pages/thread/animated_opacity_item.dart';
-import 'package:iChan/pages/thread/post_item.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/my.dart' as my;
-import 'package:iChan/widgets/dash_separator.dart';
+import 'package:ichan/blocs/thread/data.dart';
+import 'package:ichan/models/post.dart';
+import 'package:ichan/models/thread.dart';
+import 'package:ichan/models/thread_storage.dart';
+import 'package:ichan/pages/activity/history_list.dart';
+import 'package:ichan/pages/thread/animated_opacity_item.dart';
+import 'package:ichan/pages/thread/post_item.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/my.dart' as my;
+import 'package:ichan/widgets/dash_separator.dart';
 
 class ActivityPage extends StatefulWidget {
   @override

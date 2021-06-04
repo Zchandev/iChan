@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:iChan/models/media.dart';
-import 'package:iChan/pages/thread/animated_opacity_item.dart';
-import 'package:iChan/ui/haptic.dart';
-import 'package:iChan/ui/interactive.dart';
-import 'package:iChan/widgets/menu/menu_text_field.dart';
-import 'package:iChan/services/exports.dart';
+import 'package:ichan/models/media.dart';
+import 'package:ichan/pages/thread/animated_opacity_item.dart';
+import 'package:ichan/ui/haptic.dart';
+import 'package:ichan/ui/interactive.dart';
+import 'package:ichan/widgets/menu/menu_text_field.dart';
+import 'package:ichan/services/exports.dart';
 
 class MediaInfo extends StatefulWidget {
   const MediaInfo({

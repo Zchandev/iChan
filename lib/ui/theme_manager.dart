@@ -2,9 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/prefs.dart';
-import 'package:iChan/ui/themes.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/prefs.dart';
+import 'package:ichan/ui/themes.dart';
 
 class ThemeManager {
   ThemeManager({this.prefs});

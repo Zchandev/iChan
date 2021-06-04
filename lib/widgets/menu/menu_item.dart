@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iChan/services/my.dart' as my;
-import 'package:iChan/widgets/my/my_cupertino_page_route.dart';
+import 'package:ichan/services/my.dart' as my;
+import 'package:ichan/widgets/my/my_cupertino_page_route.dart';
 
 class MenuItem extends StatelessWidget {
   const MenuItem({

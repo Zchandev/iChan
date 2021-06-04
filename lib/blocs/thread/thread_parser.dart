@@ -1,9 +1,9 @@
-import 'package:iChan/blocs/thread/data.dart';
-import 'package:iChan/models/models.dart';
-import 'package:iChan/models/platform.dart';
-import 'package:iChan/services/exports.dart';
+import 'package:ichan/blocs/thread/data.dart';
+import 'package:ichan/models/models.dart';
+import 'package:ichan/models/platform.dart';
+import 'package:ichan/services/exports.dart';
 
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/services/my.dart' as my;
 
 class ThreadParser {
   ThreadParser({this.threadData, this.threadStorage});

@@ -3,11 +3,11 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:iChan/blocs/blocs.dart';
-import 'package:iChan/models/thread_storage.dart';
-import 'package:iChan/pages/thread/thread.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/blocs/blocs.dart';
+import 'package:ichan/models/thread_storage.dart';
+import 'package:ichan/pages/thread/thread.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/my.dart' as my;
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import 'favorites.dart';

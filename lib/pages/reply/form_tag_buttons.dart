@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/pages/reply/quote_button.dart';
-import 'package:iChan/pages/reply/tag_button.dart';
+import 'package:ichan/pages/reply/quote_button.dart';
+import 'package:ichan/pages/reply/tag_button.dart';
 
 class FormTagButtonsRow extends StatelessWidget {
   const FormTagButtonsRow({Key key, @required this.controller}) : super(key: key);

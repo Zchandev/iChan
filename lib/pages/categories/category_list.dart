@@ -3,15 +3,15 @@ import 'dart:math' as math;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:iChan/blocs/blocs.dart';
-import 'package:iChan/models/models.dart';
-import 'package:iChan/pages/categories/separated_sliver_list.dart';
-import 'package:iChan/services/my.dart' as my;
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/services/routz.dart';
-import 'package:iChan/widgets/search_bar.dart';
-import 'package:iChan/widgets/shimmer_widget.dart';
-import 'package:iChan/widgets/tap_to_reload.dart';
+import 'package:ichan/blocs/blocs.dart';
+import 'package:ichan/models/models.dart';
+import 'package:ichan/pages/categories/separated_sliver_list.dart';
+import 'package:ichan/services/my.dart' as my;
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/services/routz.dart';
+import 'package:ichan/widgets/search_bar.dart';
+import 'package:ichan/widgets/shimmer_widget.dart';
+import 'package:ichan/widgets/tap_to_reload.dart';
 
 import 'category_row.dart';
 

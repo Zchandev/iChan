@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/pages/settings/general/gestures_settings_page.dart';
-import 'package:iChan/pages/settings/general/system_settings_page.dart';
-import 'package:iChan/services/exports.dart';
-import 'package:iChan/widgets/menu/menu.dart';
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/pages/settings/general/gestures_settings_page.dart';
+import 'package:ichan/pages/settings/general/system_settings_page.dart';
+import 'package:ichan/services/exports.dart';
+import 'package:ichan/widgets/menu/menu.dart';
+import 'package:ichan/services/my.dart' as my;
 
 import 'general/appearance_settings_page.dart';
 import 'general/font_settings_page.dart';

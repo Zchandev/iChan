@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:iChan/pages/settings/platforms_links_page.dart';
-import 'package:iChan/widgets/header_navbar.dart';
+import 'package:ichan/pages/settings/platforms_links_page.dart';
+import 'package:ichan/widgets/header_navbar.dart';
 
 class ZchanSettingsPage extends StatelessWidget {
   @override

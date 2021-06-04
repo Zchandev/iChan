@@ -3,7 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:iChan/services/my.dart' as my;
+import 'package:ichan/services/my.dart' as my;
 
 class SeparatedSliverList extends StatelessWidget {
   const SeparatedSliverList({Key key, @required this.items}) : super(key: key);
