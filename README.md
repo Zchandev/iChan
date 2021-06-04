@@ -10,6 +10,7 @@ Features:
 - Low battery consumption
 - Function to save all images in thread
 - Instant video playback (including WebM Support for iOS)
+- Webm to mp4 converter (iOS)
 - Cached videos, images and threads
 - Remember position in threads
 - Save threads and read offline
@@ -20,17 +21,16 @@ Features:
 
 ### Install iChan on iOS
 
-1. Easy Way - One Tap Install
+1. Testflight
 
-- Subscribe on Patreon: https://www.patreon.com/zchandev
-- Send me your email
-- Receive testflight invite
+- Support this project on Patreon: https://www.patreon.com/zchandev
+- Wait for my message with information
 
-2. Hard Way
+2. Altstore
 
 - Download Altstore https://altstore.io and install it in your iPhone or iPad
-- Compile this project to get ipa file
-- Open altstore app and select that ipa to install
+- Download this app in ipa file: https://zchan.app/download/ios/iChan.ipa
+- Open Altstore app and select the ipa to install
 
 ### Install Zchan on Android
 
@@ -40,10 +40,12 @@ Features:
 
 1. Install Flutter: https://flutter.dev/docs/get-started/install
 2. Clone this repo: `git clone https://github.com/Zchandev/iChan.git`
-3. Make sure you changed directory: `cd iChan`
+3. Go to the directory: `cd iChan`
 4. Run `flutter doctor -v` to make sure you have installed Flutter
 5. Run `flutter pub get` to install packages
-6. Compile it for Android using `flutter build apk` or `flutter build ios` for iOS.
+
+- Android: type `flutter build apk`
+- iOS: type `flutter build ios` (Mac OS and Xcode is required)
 
 # Get help
 
